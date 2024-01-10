@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="paneMainContainer" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminDashboardController">
+   <children>
+      <BorderPane layoutX="181.0" layoutY="160.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <AnchorPane fx:id="paneHeader" onMouseEntered="#paneOnMouseEntered" prefHeight="90.0" prefWidth="1400.0" styleClass="header-background" stylesheets="@css/adminPanel.css" BorderPane.alignment="CENTER">
+               <children>
+                  <GridPane layoutX="47.0" layoutY="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="607.6666870117188" minWidth="10.0" prefWidth="390.66668701171875" />
+                        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="797.0" minWidth="10.0" prefWidth="595.3333129882812" />
+                      <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" maxWidth="413.66668701171875" minWidth="10.0" prefWidth="413.66668701171875" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="ALWAYS" />
+                    </rowConstraints>
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/appLogo.png" />
+                           </image>
+                        </ImageView>
+                        <Label prefHeight="104.0" prefWidth="280.0" text="E &amp; E Service Center" wrapText="true" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="32.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="110.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="69.0" prefWidth="605.0" text="Admin Dashboard" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Impact" size="36.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblLoggedUser" alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="397.0" text="Nadeesha Dassanayake" textAlignment="RIGHT" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.valignment="TOP">
+                           <font>
+                              <Font name="Calibri Bold" size="28.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                           <padding>
+                              <Insets right="10.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="lblTimeStamp" alignment="CENTER_RIGHT" ellipsisString="" prefHeight="45.0" prefWidth="422.0" text="5th Jan 2023, 10.10 AM" textAlignment="RIGHT" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.valignment="BOTTOM">
+                           <font>
+                              <Font name="Calibri Bold" size="24.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                           <padding>
+                              <Insets right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+         </top>
+         <left>
+            <AnchorPane prefHeight="820.0" prefWidth="380.0" styleClass="side-panel" stylesheets="@css/adminPanel.css" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox layoutX="111.0" layoutY="241.0" prefHeight="200.0" prefWidth="100.0" styleClass="bg-black" stylesheets="@css/adminPanel.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <MFXButton fx:id="btnManageUser" alignment="TOP_LEFT" contentDisplay="RIGHT" prefHeight="75.0" prefWidth="380.0" styleClass="bg-black" stylesheets="@css/adminPanel.css" text="Manage Users" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets top="100.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" translateX="100.0">
+                                 <image>
+                                    <Image url="@../assets/profile_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Calibri Bold" size="28.0" />
+                           </font>
+                        </MFXButton>
+                        <MFXButton fx:id="btnViewReport" alignment="TOP_LEFT" contentDisplay="RIGHT" prefHeight="75.0" prefWidth="380.0" styleClass="bg-black" stylesheets="@css/adminPanel.css" text="View Reports" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" translateX="105.0">
+                                 <image>
+                                    <Image url="@../assets/report_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Calibri Bold" size="29.0" />
+                           </font>
+                        </MFXButton>
+                        <HBox alignment="BOTTOM_RIGHT" prefHeight="560.0" prefWidth="380.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <VBox alignment="BOTTOM_CENTER" prefHeight="580.0" prefWidth="105.0" spacing="10.0">
+                                 <children>
+                                    <Circle fx:id="btnClose" fill="#ff1f1f" opacity="0.5" radius="15.0" stroke="#610101" strokeType="INSIDE" styleClass="controls">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Circle>
+                                    <Circle fx:id="btnMaximize" fill="#25ff1f" opacity="0.5" radius="15.0" stroke="BLACK" strokeType="INSIDE" styleClass="controls">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Circle>
+                                    <Circle fx:id="btnMinimize" fill="DODGERBLUE" opacity="0.5" radius="15.0" stroke="BLACK" strokeType="INSIDE" styleClass="controls">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Circle>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets bottom="15.0" />
+                                 </HBox.margin>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </left>
+         <center>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <center>
+                  <GridPane fx:id="paneMainContent">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="ALWAYS" />
+                     </rowConstraints>
+                  </GridPane>
+               </center>
+            </BorderPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

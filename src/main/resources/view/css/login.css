@@ -1,0 +1,23 @@
+.login-background{
+    -fx-background-radius: 20;
+    -fx-background-image: url("../../assets/background_img.png");
+    -fx-background-size: cover;
+}
+
+.login-form{
+    -fx-border-width: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: rgba(0, 0, 0, 0.13);
+    -fx-background-color: rgba(255, 255, 255, 0.96);
+    -fx-background-radius: 15;
+}
+
+.login-side-bg{
+    -fx-background-image: url("../../assets/side-img.png");
+    -fx-background-size: cover;
+    -fx-background-radius: 20 0 0 20;
+}
+
+.hover:hover{
+    -fx-opacity: 1;
+}

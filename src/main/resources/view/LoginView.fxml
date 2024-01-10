@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Circle?>
+
+<AnchorPane fx:id="paneMainContainer" prefHeight="480.0" prefWidth="800.0" styleClass="login-background" stylesheets="@css/login.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginViewController">
+   <children>
+      <BorderPane fx:id="paneBoarder" layoutY="-1.0" prefHeight="480.0" prefWidth="800.0" stylesheets="@css/login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <GridPane minHeight="-Infinity" minWidth="-Infinity" stylesheets="@css/login.css" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <AnchorPane fx:id="paneLeftSide" onMouseEntered="#paneOnMouseEntered" prefHeight="442.0" prefWidth="384.0" styleClass="login-side-bg" stylesheets="@css/login.css" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
+                     <children>
+                        <HBox layoutX="12.0" layoutY="11.0" spacing="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
+                           <children>
+                              <Circle fx:id="btnClose" fill="#ff215c" opacity="0.5" radius="10.0" stroke="#bc0202" strokeType="INSIDE" styleClass="hover" />
+                              <Circle fx:id="btnMaximize" fill="#51ff21" opacity="0.5" radius="10.0" stroke="#06ae00" strokeType="INSIDE" styleClass="hover" />
+                              <Circle fx:id="btnMinimize" fill="#2197ff" opacity="0.5" radius="10.0" stroke="#02329a" strokeType="INSIDE" styleClass="hover">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Circle>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </HBox>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="CLOSED_HAND" />
+                     </cursor></AnchorPane>
+                  <AnchorPane fx:id="paneSideWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="360.0" styleClass="login-form" stylesheets="@css/login.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                     <GridPane.margin>
+                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

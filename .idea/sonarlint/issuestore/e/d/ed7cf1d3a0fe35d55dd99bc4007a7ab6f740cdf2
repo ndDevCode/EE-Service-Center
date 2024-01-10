@@ -1,0 +1,7 @@
+
+8
+java:S3626^"Remove this redundant jump.(ûÁİ…8ı…’Ï1
+j
+java:S5998‚"LRefactor this repetition that can lead to a stack overflow for large inputs.(‡’±8ˆëƒ’Ï1
+Z
+java:S6353…"<Use concise character class syntax '\\d' instead of '[0-9]'.(¢´¼ø8‰ëƒ’Ï1

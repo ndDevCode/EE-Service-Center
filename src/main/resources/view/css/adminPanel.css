@@ -1,0 +1,11 @@
+.header-background{
+    -fx-background-color: #A19C9C;
+}
+
+.bg-black{
+    -fx-background-color: black;
+}
+
+.controls:hover{
+    -fx-opacity: 1;
+}
