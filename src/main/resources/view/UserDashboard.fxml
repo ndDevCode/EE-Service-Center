@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+
+<StackPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserDashboardController">
+   <children>
+      <AnchorPane fx:id="paneMainContainer" prefHeight="800.0" prefWidth="1400.0">
+         <children>
+            <GridPane vgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="-Infinity" minHeight="90.0" prefHeight="90.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="750.3333320617676" minHeight="10.0" prefHeight="697.0" valignment="CENTER" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <AnchorPane prefHeight="700.0" prefWidth="1400.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <children>
+                        <BorderPane prefHeight="688.0" prefWidth="1381.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <center>
+                              <AnchorPane fx:id="paneContent" prefHeight="700.0" prefWidth="1330.0" BorderPane.alignment="CENTER" />
+                           </center>
+                        </BorderPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="paneHeader" maxHeight="-Infinity" onMouseEntered="#paneOnMouseEntered" prefHeight="100.0" prefWidth="1400.0" styleClass="header-background" stylesheets="@css/adminPanel.css" GridPane.halignment="CENTER" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                     <children>
+                        <ImageView fitHeight="105.0" fitWidth="100.0" layoutX="2.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="8.0">
+                           <image>
+                              <Image url="@../assets/appLogo.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="110.0" layoutY="2.0" prefHeight="105.0" prefWidth="280.0" text="E &amp; E Service Center" wrapText="true">
+                           <font>
+                              <Font name="Calibri Bold" size="32.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="459.0" layoutY="8.0" prefHeight="106.0" prefWidth="316.0" text="User Dashboard" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font name="Impact" size="36.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblLoggedUser" alignment="CENTER_RIGHT" layoutX="963.0" layoutY="8.0" prefHeight="45.0" prefWidth="397.0" text="Nadeesha Dassanayake" textAlignment="RIGHT" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+                           <font>
+                              <Font name="Calibri Bold" size="28.0" />
+                           </font>
+                           <padding>
+                              <Insets right="10.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="lblTimeStamp" alignment="CENTER_RIGHT" ellipsisString="" layoutX="935.0" layoutY="54.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="45.0" prefWidth="422.0" text="5th Jan 2023, 10.10 AM" textAlignment="RIGHT" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font name="Calibri Bold" size="24.0" />
+                           </font>
+                           <padding>
+                              <Insets right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="2.0" />
+                     </padding>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="paneSideMenu" maxWidth="-Infinity" prefHeight="700.0" prefWidth="380.0" styleClass="side-panel" stylesheets="@css/adminPanel.css" translateX="-315.0" StackPane.alignment="BOTTOM_LEFT">
+         <children>
+            <VBox layoutX="111.0" layoutY="241.0" prefHeight="200.0" prefWidth="100.0" styleClass="bg-black" stylesheets="@css/adminPanel.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <MFXButton fx:id="btnMenu" alignment="TOP_LEFT" contentDisplay="GRAPHIC_ONLY" prefHeight="75.0" prefWidth="380.0" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="Calibri Bold" size="29.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" translateX="303.0">
+                           <image>
+                              <Image url="@../assets/menu.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <stylesheets>
+                        <URL value="@css/adminPanel.css" />
+                        <URL value="@css/userPanel.css" />
+                     </stylesheets>
+                     <styleClass>
+                        <String fx:value="bg-black" />
+                        <String fx:value="btn" />
+                     </styleClass>
+                  </MFXButton>
+                  <MFXButton fx:id="btnHome" alignment="TOP_LEFT" contentDisplay="RIGHT" prefHeight="75.0" prefWidth="380.0" text="Home" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="Calibri Bold" size="29.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" translateX="223.0">
+                           <image>
+                              <Image url="@../assets/home.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <stylesheets>
+                        <URL value="@css/adminPanel.css" />
+                        <URL value="@css/userPanel.css" />
+                     </stylesheets>
+                     <styleClass>
+                        <String fx:value="bg-black" />
+                        <String fx:value="btn" />
+                     </styleClass>
+                  </MFXButton>
+                  <MFXButton fx:id="btnManageProfile" alignment="TOP_LEFT" contentDisplay="RIGHT" prefHeight="75.0" prefWidth="380.0" text="Manage Profile" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" translateX="106.0">
+                           <image>
+                              <Image url="@../assets/profile_icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="Calibri Bold" size="28.0" />
+                     </font>
+                     <stylesheets>
+                        <URL value="@css/adminPanel.css" />
+                        <URL value="@css/userPanel.css" />
+                     </stylesheets>
+                     <styleClass>
+                        <String fx:value="bg-black" />
+                        <String fx:value="btn" />
+                     </styleClass>
+                  </MFXButton>
+                  <MFXButton fx:id="btnOrderMgt" alignment="TOP_LEFT" contentDisplay="RIGHT" prefHeight="75.0" prefWidth="380.0" text="Order Management" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" translateX="39.0">
+                           <image>
+                              <Image url="@../assets/report_icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="Calibri Bold" size="29.0" />
+                     </font>
+                     <stylesheets>
+                        <URL value="@css/adminPanel.css" />
+                        <URL value="@css/userPanel.css" />
+                     </stylesheets>
+                     <styleClass>
+                        <String fx:value="bg-black" />
+                        <String fx:value="btn" />
+                     </styleClass>
+                  </MFXButton>
+                  <MFXButton fx:id="btnItemCatalog" alignment="TOP_LEFT" contentDisplay="RIGHT" prefHeight="75.0" prefWidth="380.0" text="Item Catalog" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" translateX="130.0">
+                           <image>
+                              <Image url="@../assets/itemc.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="Calibri Bold" size="29.0" />
+                     </font>
+                     <stylesheets>
+                        <URL value="@css/adminPanel.css" />
+                        <URL value="@css/userPanel.css" />
+                     </stylesheets>
+                     <styleClass>
+                        <String fx:value="bg-black" />
+                        <String fx:value="btn" />
+                     </styleClass>
+                  </MFXButton>
+                  <MFXButton fx:id="btnItemInventory" alignment="TOP_LEFT" contentDisplay="RIGHT" prefHeight="75.0" prefWidth="380.0" text="Item Inventory" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" translateX="105.0">
+                           <image>
+                              <Image url="@../assets/itemi.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="Calibri Bold" size="29.0" />
+                     </font>
+                     <stylesheets>
+                        <URL value="@css/adminPanel.css" />
+                        <URL value="@css/userPanel.css" />
+                     </stylesheets>
+                     <styleClass>
+                        <String fx:value="bg-black" />
+                        <String fx:value="btn" />
+                     </styleClass>
+                  </MFXButton>
+                  <MFXButton fx:id="btnPartInventory" alignment="TOP_LEFT" contentDisplay="RIGHT" prefHeight="75.0" prefWidth="380.0" text="Part Inventory" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" translateX="110.0">
+                           <image>
+                              <Image url="@../assets/parti.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="Calibri Bold" size="29.0" />
+                     </font>
+                     <stylesheets>
+                        <URL value="@css/adminPanel.css" />
+                        <URL value="@css/userPanel.css" />
+                     </stylesheets>
+                     <styleClass>
+                        <String fx:value="bg-black" />
+                        <String fx:value="btn" />
+                     </styleClass>
+                  </MFXButton>
+                  <MFXButton fx:id="btnViewReport" alignment="TOP_LEFT" contentDisplay="RIGHT" prefHeight="75.0" prefWidth="380.0" text="View Reports" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" translateX="126.0">
+                           <image>
+                              <Image url="@../assets/reportv.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="Calibri Bold" size="29.0" />
+                     </font>
+                     <stylesheets>
+                        <URL value="@css/adminPanel.css" />
+                        <URL value="@css/userPanel.css" />
+                     </stylesheets>
+                     <styleClass>
+                        <String fx:value="bg-black" />
+                        <String fx:value="btn" />
+                     </styleClass>
+                  </MFXButton>
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="575.0" prefWidth="380.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <VBox alignment="BOTTOM_CENTER" prefHeight="227.0" prefWidth="61.0" spacing="10.0">
+                           <children>
+                              <Circle fx:id="btnClose" fill="#ff1f1f" opacity="0.5" radius="15.0" stroke="#610101" strokeType="INSIDE" styleClass="controls">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Circle>
+                              <Circle fx:id="btnMaximize" fill="#25ff1f" opacity="0.5" radius="15.0" stroke="BLACK" strokeType="INSIDE" styleClass="controls">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Circle>
+                              <Circle fx:id="btnMinimize" fill="DODGERBLUE" opacity="0.5" radius="15.0" stroke="BLACK" strokeType="INSIDE" styleClass="controls">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Circle>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="15.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+         <StackPane.margin>
+            <Insets top="98.0" />
+         </StackPane.margin>
+      </AnchorPane>
+   </children>
+</StackPane>

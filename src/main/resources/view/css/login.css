@@ -18,6 +18,10 @@
     -fx-background-radius: 20 0 0 20;
 }
 
+.bg-black{
+    -fx-background-color: black;
+}
+
 .hover:hover{
     -fx-opacity: 1;
 }

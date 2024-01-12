@@ -1,8 +1,11 @@
 package controller;
 
+import animatefx.animation.FadeInUp;
 import bo.BoFactory;
 import bo.custom.UserAuthenticationBo;
 import bo.util.BoType;
+import controller.util.ValidationType;
+import controller.util.ValidationUtil;
 import dto.StaffDto;
 import dto.UserCredentialsDto;
 import io.github.palexdev.materialfx.controls.MFXButton;
@@ -27,8 +30,6 @@ import javafx.stage.StageStyle;
 import javax.persistence.NoResultException;
 import java.io.IOException;
 import java.util.Objects;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class LoginFormController {
 
@@ -53,7 +54,6 @@ public class LoginFormController {
     UserAuthenticationBo userAuthenticationBo = BoFactory.getInstance().getBo(BoType.USER_AUTHENTICATION);
 
     public void initialize() {
-
         // Link to reset password view
         linkForgotPassword.setOnAction(new EventHandler<>() {
             @Override
@@ -90,8 +90,7 @@ public class LoginFormController {
             if(loggedStaff!=null && loggedStaff.getRole().equals("admin")){
                 loadAdminPanel(loggedStaff);
             }else if(loggedStaff!=null && loggedStaff.getRole().equals("user")){
-                //load user dashboard
-                return;
+                loadUserPanel(loggedStaff);
             }else{
                 alertInvalidCredentials();
             }
@@ -123,23 +122,43 @@ public class LoginFormController {
         AdminDashboardController adminController = loader.getController();
         adminController.initLoggedUser(staff);
 
+        //Animation
+        new FadeInUp(root).play();
+
     }
 
+    void loadUserPanel(StaffDto staff) throws IOException {
+        // Closing the LoginView Window
+        Stage stage = (Stage) paneMainContainer.getScene().getWindow();
+        stage.close();
+
+        // Load Admin Panel FXML
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../view/UserDashboard.fxml")));
+        Parent root = loader.load();
+
+
+        // Set Styles and Display the AdminView Window
+        Scene scene = new Scene(root);
+        scene.setFill(Color.TRANSPARENT);
+        Stage primaryStage = new Stage(StageStyle.TRANSPARENT);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("E & E Service Center");
+        primaryStage.getIcons().add(new Image("assets/appLogo.png"));
+        primaryStage.show();
+
+        // Transfer LoggedUser Data to AdminController
+//        AdminDashboardController adminController = loader.getController();
+//        adminController.initLoggedUser(staff);
+
+        //Animation
+        new FadeInUp(root).play();
+
+    }
+
+
     boolean validateUserInput(UserCredentialsDto userCredentialsDto){
-        final String EMAIL_PATTERN =
-                "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-
-        final String PASSWORD_PATTERN =
-                "^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[@#$%^&+=])(?=.*[a-zA-Z0-9@#$%^&+=]).{8,}$";
-
-
-        Pattern emailPattern = Pattern.compile(EMAIL_PATTERN);
-        Pattern passwordPattern = Pattern.compile(PASSWORD_PATTERN);
-
-        Matcher emailMatcher = emailPattern.matcher(userCredentialsDto.getUserEmail());
-        Matcher passwordMatcher = passwordPattern.matcher(userCredentialsDto.getUserPassword());
-
-        return emailMatcher.matches() && passwordMatcher.matches();
+        return ValidationUtil.validate(userCredentialsDto.getUserEmail(), ValidationType.EMAIL) &&
+        ValidationUtil.validate(userCredentialsDto.getUserPassword(), ValidationType.PASSWORD);
     }
 
 

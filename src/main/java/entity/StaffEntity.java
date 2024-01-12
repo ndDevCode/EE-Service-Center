@@ -14,7 +14,6 @@ import java.util.List;
 @NoArgsConstructor
 @Setter
 @Getter
-@ToString
 
 @Entity
 @Table(name = "staff")
@@ -36,6 +35,7 @@ public class StaffEntity {
     private String contactNo;
     @Column(nullable = false,unique = true)
     private String email;
+    @Column(nullable = false)
     private String password;
     @Column(nullable = false)
     private String role;
@@ -56,6 +56,19 @@ public class StaffEntity {
         this.email = email;
         this.password = password;
         this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "StaffEntity{" +
+                "staffId='" + staffId + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", contactNo='" + contactNo + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                '}';
     }
 }
 

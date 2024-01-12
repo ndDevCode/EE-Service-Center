@@ -1,34 +1,37 @@
 package controller;
 
-import bo.BoFactory;
-import bo.custom.UserAuthenticationBo;
-import bo.util.BoType;
 import dto.StaffDto;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.animation.AnimationTimer;
+import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
-public class AdminDashboardController {
+public class UserDashboardController {
 
     @FXML
     private AnchorPane paneMainContainer;
+
+    @FXML
+    private AnchorPane paneContent;
+
+    @FXML
+    private AnchorPane paneHeader;
 
     @FXML
     private Label lblLoggedUser;
@@ -37,7 +40,28 @@ public class AdminDashboardController {
     private Label lblTimeStamp;
 
     @FXML
-    private MFXButton btnManageUser;
+    private AnchorPane paneSideMenu;
+
+    @FXML
+    private MFXButton btnMenu;
+
+    @FXML
+    private MFXButton btnHome;
+
+    @FXML
+    private MFXButton btnManageProfile;
+
+    @FXML
+    private MFXButton btnOrderMgt;
+
+    @FXML
+    private MFXButton btnItemCatalog;
+
+    @FXML
+    private MFXButton btnItemInventory;
+
+    @FXML
+    private MFXButton btnPartInventory;
 
     @FXML
     private MFXButton btnViewReport;
@@ -51,22 +75,13 @@ public class AdminDashboardController {
     @FXML
     private Circle btnMinimize;
 
-    @FXML
-    private GridPane paneMainContent;
-
-    @FXML
-    private AnchorPane paneHeader;
-
     private double xOffset;
     private double yOffset;
     private StaffDto loggedStaff;
 
-    UserAuthenticationBo userAuthenticationBo = BoFactory.getInstance().getBo(BoType.USER_AUTHENTICATION);
+    public void initialize(){
 
-    public void initialize() {
-
-        // Setting up the date and timer on the header
-
+        // Set Timestamp
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
@@ -75,10 +90,8 @@ public class AdminDashboardController {
         };
         timer.start();
 
-
         // Setting up custom window controls
         final boolean[] isMaximized = {false};
-
 
         btnClose.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> Platform.exit());
 
@@ -99,26 +112,33 @@ public class AdminDashboardController {
                 (MouseEvent.MOUSE_CLICKED, event -> ((Stage) paneHeader.getScene().getWindow()).setIconified(true));
 
 
-        // Mapping menu buttons to relevant view
-        btnManageUser.setOnAction(actionEvent -> loadUserManageView(loggedStaff));
+        //---- SidePane Slide in/out Animation
+        TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(0.8), paneSideMenu);
+        paneSideMenu.setTranslateX(-315);
 
-    }
+        // Set action on toggle button
+        btnMenu.setOnAction(event -> {
+            if (paneSideMenu.getTranslateX() < 0) {
+                translateTransition.setToX(0);
+                translateTransition.play();
+            } else {
+                translateTransition.setToX(-315);
+                translateTransition.play();
+            }
+        });
 
-    private void loadUserManageView(StaffDto staff) {
-        try {
-            FXMLLoader loader = new FXMLLoader(Objects.requireNonNull
-                    (getClass().getResource("/view/AdminUserManageView.fxml")));
-            Parent root = loader.load();
-            AdminUserManageViewController adminController = loader.getController();
-            adminController.initLoggedUser(staff);
-            paneMainContent.getChildren().setAll((Node) root);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // Set action on Mouse move out >> slide out
+        paneSideMenu.setOnMouseExited(mouseEvent -> {
+            translateTransition.setToX(-315);
+            translateTransition.play();
+        });
+
+        //load home page
+        loadHomePage();
     }
 
     @FXML
-    void paneOnMouseEntered() { // Enable Dragging for the login window by holding side pane
+    void paneOnMouseEntered() {
         Stage stage = (Stage) paneHeader.getScene().getWindow();
         paneHeader.setOnMousePressed(event -> {
             xOffset = stage.getX() - event.getScreenX();
@@ -130,21 +150,14 @@ public class AdminDashboardController {
         });
     }
 
-    void initLoggedUser(StaffDto staff) {
-        // Initialize Logged User from LoginFormController
-        this.loggedStaff = staff;
-        String userName = userAuthenticationBo.getUserData(loggedStaff.getEmail()).getFirstName();
-        lblLoggedUser.setText("Hello, "+userName);
-
-        // Loading Initial View
-        loadUserManageView(loggedStaff);
-
-        // Initial Login Welcome Alert
-        if (loggedStaff.getRole().equals("admin_init")) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Welcome Admin..!");
-            alert.setContentText("Welcome to the E & E Service Center. Please Register the Admin Account to initialize the System");
-            alert.show();
+    private void loadHomePage() {
+        try {
+            FXMLLoader loader = new FXMLLoader(Objects.requireNonNull
+                    (getClass().getResource("/view/HomeView.fxml")));
+            Parent root = loader.load();
+            paneContent.getChildren().setAll((Node) root);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
