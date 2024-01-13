@@ -1,5 +1,6 @@
 package dao;
 
+import dao.custom.impl.ItemCatalogDaoImpl;
 import dao.custom.impl.UserAuthenticationDaoImpl;
 import dao.util.DaoType;
 
@@ -15,6 +16,7 @@ public class DaoFactory {
     public <T extends SuperDao> T getDao(DaoType type){
         switch(type){
             case USER_AUTHENTICATION: return (T) new UserAuthenticationDaoImpl();
+            case CATALOG_ITEM: return (T) new ItemCatalogDaoImpl();
         }
 
         return null;

@@ -147,8 +147,8 @@ public class LoginFormController {
         primaryStage.show();
 
         // Transfer LoggedUser Data to AdminController
-//        AdminDashboardController adminController = loader.getController();
-//        adminController.initLoggedUser(staff);
+        UserDashboardController userController = loader.getController();
+        userController.initLoggedUser(staff);
 
         //Animation
         new FadeInUp(root).play();

@@ -1,5 +1,6 @@
 package bo;
 
+import bo.custom.impl.ItemCatalogBoImpl;
 import bo.custom.impl.UserAuthenticationBoImpl;
 import bo.util.BoType;
 
@@ -15,6 +16,7 @@ public class BoFactory {
     public <T extends SuperBo>T getBo(BoType boType){
         switch (boType){
             case USER_AUTHENTICATION: return (T) new UserAuthenticationBoImpl();
+            case CATALOG_ITEM: return (T) new ItemCatalogBoImpl();
         }
 
         return null;

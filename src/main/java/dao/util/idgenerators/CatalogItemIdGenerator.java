@@ -20,8 +20,8 @@ public class CatalogItemIdGenerator implements IdentifierGenerator {
             rs.next();
             int nextId = rs.getInt(1);
 
-            // Format the ID as ODR#000001
-            return "CIT#" + String.format("%03d", ++nextId);
+            // Format the ID as CIT001
+            return "CIT" + String.format("%03d", ++nextId);
         } catch (SQLException e) {
             throw new HibernateException("Error generating custom ID", e);
         }

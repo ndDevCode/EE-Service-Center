@@ -1,5 +1,8 @@
 package controller;
 
+import bo.BoFactory;
+import bo.custom.UserAuthenticationBo;
+import bo.util.BoType;
 import dto.StaffDto;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.animation.AnimationTimer;
@@ -9,9 +12,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
@@ -28,7 +33,7 @@ public class UserDashboardController {
     private AnchorPane paneMainContainer;
 
     @FXML
-    private AnchorPane paneContent;
+    private GridPane paneContent;
 
     @FXML
     private AnchorPane paneHeader;
@@ -133,6 +138,12 @@ public class UserDashboardController {
             translateTransition.play();
         });
 
+        //Setting up menu buttons
+
+        btnHome.setOnAction(actionEvent -> loadHomePage());
+
+        btnItemCatalog.setOnAction(actionEvent -> loadItemCatalog(loggedStaff));
+
         //load home page
         loadHomePage();
     }
@@ -158,6 +169,35 @@ public class UserDashboardController {
             paneContent.getChildren().setAll((Node) root);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void loadItemCatalog(StaffDto staffDto) {
+        try {
+            FXMLLoader loader = new FXMLLoader(Objects.requireNonNull
+                    (getClass().getResource("/view/ItemCatalogView.fxml")));
+            Parent root = loader.load();
+            ItemCatalogViewController itemCatalogViewController = loader.getController();
+            itemCatalogViewController.initLoggedUser(staffDto);
+            paneContent.getChildren().setAll((Node) root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    void initLoggedUser(StaffDto staff) {
+        // Initialize Logged User from LoginFormController
+        this.loggedStaff = staff;
+        UserAuthenticationBo userAuthenticationBo = BoFactory.getInstance().getBo(BoType.USER_AUTHENTICATION);
+        String userName = userAuthenticationBo.getUserData(loggedStaff.getEmail()).getFirstName();
+        lblLoggedUser.setText("Hello, "+userName);
+
+        // Initial Login Welcome Alert
+        if (loggedStaff.getRole().equals("admin_init")) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Welcome Admin..!");
+            alert.setContentText("Welcome to the E & E Service Center. Please Register the Admin Account to initialize the System");
+            alert.show();
         }
     }
 }

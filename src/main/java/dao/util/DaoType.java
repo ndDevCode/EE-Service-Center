@@ -1,5 +1,5 @@
 package dao.util;
 
 public enum DaoType {
-    USER_AUTHENTICATION
+    USER_AUTHENTICATION, CATALOG_ITEM
 }

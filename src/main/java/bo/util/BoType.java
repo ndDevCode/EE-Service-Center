@@ -1,5 +1,5 @@
 package bo.util;
 
 public enum BoType {
-    USER_AUTHENTICATION
+    USER_AUTHENTICATION, CATALOG_ITEM
 }

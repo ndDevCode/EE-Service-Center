@@ -4,34 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18bc9f9b-2add-45a0-b78a-29ebc2b4db1f" name="Changes" comment="Updated .gitignore">
-      <change afterPath="$PROJECT_DIR$/src/main/java/bo/util/JakartaEmail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/HomeViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/UserDashboardController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/util/ValidationType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/util/ValidationUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/tm/StaffTm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/HomeView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/UserDashboard.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/css/userPanel.css" afterDir="false" />
+    <list default="true" id="18bc9f9b-2add-45a0-b78a-29ebc2b4db1f" name="Changes" comment="Completed the Password reset form on login view&#10;UserDashboard UI added&#10;HomeView UI added&#10;HomeView Controller initialized">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bo/custom/ItemCatalogBo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bo/custom/impl/ItemCatalogBoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/ItemCatalogViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/custom/ItemCatalogDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/custom/impl/ItemCatalogDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dto/CatalogItemDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dto/tm/CatalogItemTm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/ItemCatalogView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/a/6aa137bc906070754995213a7d2efe6e395e1115" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/a/6aa137bc906070754995213a7d2efe6e395e1115" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/d/ed7cf1d3a0fe35d55dd99bc4007a7ab6f740cdf2" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/d/ed7cf1d3a0fe35d55dd99bc4007a7ab6f740cdf2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bo/custom/UserAuthenticationBo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bo/custom/UserAuthenticationBo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bo/custom/impl/UserAuthenticationBoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bo/custom/impl/UserAuthenticationBoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AdminDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AdminDashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bo/BoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bo/BoFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bo/util/BoType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bo/util/BoType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/AdminUserManageViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AdminUserManageViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HomeViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HomeViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/LoginFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LoginFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ResetPasswordFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ResetPasswordFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/custom/UserAuthenticationDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/custom/UserAuthenticationDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/custom/impl/UserAuthenticationDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/custom/impl/UserAuthenticationDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/StaffEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/StaffEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/AdminUserManageView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/AdminUserManageView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/ResetPasswordForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/ResetPasswordForm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/UserDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/UserDashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DaoFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/util/DaoType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/util/DaoType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/util/idgenerators/CatalogItemIdGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/util/idgenerators/CatalogItemIdGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/CatalogEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/CatalogEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/UserDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/UserDashboard.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,10 +38,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
         <option value="CSS File" />
         <option value="FxmlFile" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -78,7 +75,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "B:/ICET/JavaFX/Final Project/E&E Service Center/ee-service-center/src/main/resources/view",
+    "last_opened_file_path": "B:/ICET/JavaFX/Final Project/E&E Service Center/ee-service-center/images",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -94,6 +91,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="B:\ICET\JavaFX\Final Project\E&amp;E Service Center\ee-service-center\images" />
       <recent name="B:\ICET\JavaFX\Final Project\E&amp;E Service Center\ee-service-center\src\main\resources\view" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -174,7 +172,8 @@
       <workItem from="1704806769888" duration="11473000" />
       <workItem from="1704822660887" duration="102000" />
       <workItem from="1704857564139" duration="54191000" />
-      <workItem from="1705032875994" duration="17369000" />
+      <workItem from="1705032875994" duration="28098000" />
+      <workItem from="1705117696482" duration="16735000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit&#10;Completed Login Interface&#10;Completed Admin Initial Interface&#10;Completed Hibernate ORM&#10;Completed Initial Admin Login to the System&#10;Completed User Authorization with Password Encryption">
       <option name="closed" value="true" />
@@ -192,7 +191,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704875196666</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Completed the Password reset form on login view&#10;UserDashboard UI added&#10;HomeView UI added&#10;HomeView Controller initialized">
+      <option name="closed" value="true" />
+      <created>1705062434447</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1705062434447</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,6 +207,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit&#10;Completed Login Interface&#10;Completed Admin Initial Interface&#10;Completed Hibernate ORM&#10;Completed Initial Admin Login to the System&#10;Completed User Authorization with Password Encryption" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit&#10;Completed Login Interface&#10;Completed Admin Initial Interface&#10;Completed Hibernate ORM&#10;Completed Initial Admin Login to the System&#10;Completed User Authorization with Password Encryption" />
+    <MESSAGE value="Completed the Password reset form on login view&#10;UserDashboard UI added&#10;HomeView UI added&#10;HomeView Controller initialized" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed the Password reset form on login view&#10;UserDashboard UI added&#10;HomeView UI added&#10;HomeView Controller initialized" />
   </component>
 </project>

@@ -115,7 +115,6 @@ public class AdminUserManageViewController {
             mfxTableRowCell.setLeadingGraphic(btnDelete);
             mfxTableRowCell.setAlignment(Pos.CENTER);
             mfxTableRowCell.mouseTransparentProperty().addListener((observable, oldValue, newValue) -> {
-                System.out.println(newValue);
                 if (newValue) {
                     mfxTableRowCell.setMouseTransparent(false);
                 }

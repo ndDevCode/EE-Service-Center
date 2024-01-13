@@ -1,5 +1,6 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -30,6 +31,7 @@ public class CatalogEntity {
     private String category;
     private String imgLink;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "staff_id")
     private StaffEntity staff;
