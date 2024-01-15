@@ -33,7 +33,7 @@ public class ValidationUtil {
             isStaffIdAvailable = true;
         }
 
-        if(staffDto.getPassword().equals("")){
+        if(staffDto.getPassword().isEmpty()){
             isPasswordValidated = true;
         }
 

@@ -289,6 +289,14 @@
                   </MFXButton>
                   <HBox alignment="BOTTOM_RIGHT" prefHeight="575.0" prefWidth="380.0" VBox.vgrow="ALWAYS">
                      <children>
+                        <MFXButton fx:id="btnLogOut" prefHeight="38.0" prefWidth="100.0" styleClass="bg-black" text="Log out" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets bottom="15.0" right="225.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                        </MFXButton>
                         <VBox alignment="BOTTOM_CENTER" prefHeight="227.0" prefWidth="61.0" spacing="10.0">
                            <children>
                               <Circle fx:id="btnClose" fill="#ff1f1f" opacity="0.5" radius="15.0" stroke="#610101" strokeType="INSIDE" styleClass="controls">

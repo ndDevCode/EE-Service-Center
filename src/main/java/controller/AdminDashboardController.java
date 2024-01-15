@@ -1,5 +1,6 @@
 package controller;
 
+import animatefx.animation.FadeInUp;
 import bo.BoFactory;
 import bo.custom.UserAuthenticationBo;
 import bo.util.BoType;
@@ -11,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -41,6 +43,9 @@ public class AdminDashboardController {
 
     @FXML
     private MFXButton btnViewReport;
+
+    @FXML
+    private MFXButton btnLogOut;
 
     @FXML
     private Circle btnClose;
@@ -102,6 +107,21 @@ public class AdminDashboardController {
         // Mapping menu buttons to relevant view
         btnManageUser.setOnAction(actionEvent -> loadUserManageView(loggedStaff));
 
+        btnLogOut.setOnAction(actionEvent -> logOut());
+
+    }
+
+    private void logOut() {
+        try {
+            Stage stage = (Stage) btnLogOut.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(Objects.requireNonNull
+                    (getClass().getResource("/view/LoginView.fxml")));
+            Parent root = loader.load();
+            stage.setScene(new Scene(root));
+            new FadeInUp(root).play();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void loadUserManageView(StaffDto staff) {

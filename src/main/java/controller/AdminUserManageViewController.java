@@ -229,7 +229,6 @@ public class AdminUserManageViewController {
             operationErrorAlert("Invalid User Details!","Please check the entered details are correct");
             return;
         }
-
         if (!userAuthenticationBo.updateUser(newStaff)) {
             operationErrorAlert("Error Occurred!", "Update Failed");
         } else {

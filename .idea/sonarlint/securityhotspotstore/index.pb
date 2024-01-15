@@ -126,3 +126,19 @@ c
 ,src/main/java/dao/custom/ItemCatalogDao.java,9\9\99aebd5cab922aebced07ef74c702e888bcc035b
 e
 5src/main/java/dao/custom/impl/ItemCatalogDaoImpl.java,1\3\138e346e6b3897eca7bca8b0d7fd1b195aa3bf4e
+k
+;src/main/java/controller/OrderManagementViewController.java,7\a\7ab149ff065468ec32c3152269893ab07c93b104
+e
+5src/main/java/controller/ManageProfileController.java,0\a\0abccb0ec96673519d24951ddf4357ae1126f470
+V
+&src/main/java/dao/custom/OrderDao.java,0\8\0862556bde68ad47794fc754fd19e77b0f13b6d7
+O
+src/main/java/dto/OrderDto.java,d\9\d99f6e4a8edc2b395bd1e1d43fbcd641e1fa81f5
+_
+/src/main/java/dao/custom/impl/OrderDaoImpl.java,2\a\2a0f2887e69155c4ab17b9a6277638f1abc5cc15
+N
+src/main/java/dto/ItemDto.java,3\d\3d0380508e9c218720144ded2d55164c08dc8381
+Y
+)src/main/java/controller/util/Status.java,f\8\f8078b49e6c3202d78d203950061a1a68208585a
+W
+'src/main/java/controller/util/Zone.java,8\b\8bf8014453806ea57feb56e458a1effe68752f8a
