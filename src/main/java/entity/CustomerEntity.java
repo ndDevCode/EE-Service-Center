@@ -1,5 +1,6 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -32,6 +33,7 @@ public class CustomerEntity {
     private String email;
     private String contactNo;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "customer")
     private List<OrderEntity> orders = new ArrayList<>();
 

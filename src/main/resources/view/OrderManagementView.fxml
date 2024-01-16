@@ -110,6 +110,11 @@
                                                 <MFXTextField fx:id="txtLastName" floatingText="Last Name" prefWidth="325.0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
                                                 <MFXTextField fx:id="txtEmail" floatingText="Email" prefWidth="325.0" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
                                                 <MFXTextField fx:id="txtContactNo" floatingText="Contact No" prefWidth="325.0" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                                                <MFXButton fx:id="btnUpdateCustomer" prefHeight="42.0" prefWidth="146.0" styleClass="bg-black" stylesheets="@css/adminPanel.css" text="Update Customer" textFill="WHITE" GridPane.rowIndex="6" GridPane.valignment="TOP">
+                                                   <GridPane.margin>
+                                                      <Insets left="15.0" top="15.0" />
+                                                   </GridPane.margin>
+                                                </MFXButton>
                                              </children>
                                           </GridPane>
                                           <GridPane GridPane.columnIndex="1">
@@ -170,6 +175,11 @@
                                           <MFXButton fx:id="btnPlaceOrder" prefHeight="46.0" prefWidth="187.0" styleClass="bg-black" stylesheets="@css/adminPanel.css" text="Place Order" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                                              <GridPane.margin>
                                                 <Insets bottom="5.0" />
+                                             </GridPane.margin>
+                                          </MFXButton>
+                                          <MFXButton fx:id="btnRemoveItems" text="Remove Items" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+                                             <GridPane.margin>
+                                                <Insets right="15.0" top="15.0" />
                                              </GridPane.margin>
                                           </MFXButton>
                                        </children>

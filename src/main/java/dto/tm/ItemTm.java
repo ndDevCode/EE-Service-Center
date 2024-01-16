@@ -1,5 +1,4 @@
-package dto;
-
+package dto.tm;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
@@ -9,15 +8,12 @@ import lombok.*;
 @Setter
 @Getter
 @ToString
-public class ItemDto{
+
+public class ItemTm {
     private String itemId;
     private String name;
     private String category;
-    @JsonIgnore
-    private String status;
-    @JsonIgnore
-    private String zone;
     private double repairPrice;
     @JsonIgnore
-    private String orderId;
+    private String action;
 }

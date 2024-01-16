@@ -1,5 +1,6 @@
 package controller.util;
 
+import dto.CustomerDto;
 import dto.StaffDto;
 
 import java.util.Objects;
@@ -23,6 +24,13 @@ public class ValidationUtil {
                 validate(staffDto.getPassword(),ValidationType.PASSWORD) &&
                 !Objects.equals(staffDto.getRole(), "") &&
                 staffDto.getRole()!=null;
+    }
+
+    public static boolean validateForSave(CustomerDto customerDto){
+        return validate(customerDto.getFirstName(),ValidationType.TEXT_ONLY) &&
+                validate(customerDto.getLastName(),ValidationType.TEXT_ONLY) &&
+                validate(customerDto.getContactNo(),ValidationType.CONTACT_NO) &&
+                validate(customerDto.getEmail(),ValidationType.EMAIL);
     }
 
     public static boolean validateForUpdate(StaffDto staffDto){

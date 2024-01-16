@@ -1,6 +1,6 @@
 package controller.util;
 
-public enum Zone {
+public enum ZoneType {
     ORANGE("Orange"),
     RED("Red"),
     YELLOW("Yellow"),
@@ -8,7 +8,7 @@ public enum Zone {
 
 
     private final String type;
-    Zone(String type) {
+    ZoneType(String type) {
         this.type = type;
     }
     @Override

@@ -1,13 +1,13 @@
 package controller.util;
 
-public enum Status {
+public enum StatusType {
     PENDING("Pending"),
     PROCESSING("Processing"),
     COMPLETED("Completed"),
     CLOSED("Closed");
 
     private final String type;
-    Status(String type) {
+    StatusType(String type) {
         this.type = type;
     }
     @Override

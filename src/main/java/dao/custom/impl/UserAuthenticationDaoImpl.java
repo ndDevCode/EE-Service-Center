@@ -34,7 +34,6 @@ public class UserAuthenticationDaoImpl implements UserAuthenticationDao {
             session.close();
             return singleResult;
         } catch (NoResultException nre) {
-            System.out.println("No Result");
             return null;
         }
     }

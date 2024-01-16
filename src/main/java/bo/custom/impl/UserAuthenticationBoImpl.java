@@ -59,7 +59,7 @@ public class UserAuthenticationBoImpl implements UserAuthenticationBo {
 
     @Override
     public boolean updateUser(StaffDto staffDto) throws SQLException, ClassNotFoundException {
-        if(staffDto.getPassword()!=null && staffDto.getPassword().isEmpty()){
+        if(staffDto.getPassword()!=null && !staffDto.getPassword().isEmpty()){
             staffDto.setPassword(EncriptionUtil.encrypt(staffDto.getPassword()));
         }
         return userAuthenticationDao.update(mapper.convertValue(staffDto, StaffEntity.class));

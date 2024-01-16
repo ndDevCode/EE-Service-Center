@@ -1,6 +1,8 @@
 package bo;
 
+import bo.custom.impl.CustomerBoImpl;
 import bo.custom.impl.ItemCatalogBoImpl;
+import bo.custom.impl.OrderBoImpl;
 import bo.custom.impl.UserAuthenticationBoImpl;
 import bo.util.BoType;
 
@@ -17,6 +19,8 @@ public class BoFactory {
         switch (boType){
             case USER_AUTHENTICATION: return (T) new UserAuthenticationBoImpl();
             case CATALOG_ITEM: return (T) new ItemCatalogBoImpl();
+            case CUSTOMER: return (T) new CustomerBoImpl();
+            case ORDER: return (T) new OrderBoImpl();
         }
 
         return null;

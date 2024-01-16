@@ -41,11 +41,12 @@ public class HomeViewController {
         // Image
         Image image = new Image(dto.getImgLink());
         ImageView imageView = new ImageView(image);
-        imageView.setFitWidth(350);
         imageView.setFitHeight(200);
-        AnchorPane.setTopAnchor(imageView, 0.0);
-        AnchorPane.setLeftAnchor(imageView, 0.0);
-        AnchorPane.setRightAnchor(imageView, 0.0);
+        imageView.setPreserveRatio(true);
+        imageView.setSmooth(true);
+        AnchorPane.setTopAnchor(imageView, 25.0);
+        AnchorPane.setLeftAnchor(imageView, 25.0);
+        AnchorPane.setRightAnchor(imageView, 25.0);
 
         // Label 1
         Label label1 = new Label(dto.getCategory());
