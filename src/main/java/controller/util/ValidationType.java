@@ -5,7 +5,8 @@ public enum ValidationType {
     PASSWORD("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"),
     CONTACT_NO("^0\\d{9}$"),
     TEXT_ONLY("^[a-zA-Z]+$"),
-    DOUBLE_VALUE("^[+]?\\d*\\.?\\d+$");
+    DOUBLE_VALUE("^[+]?\\d*\\.?\\d+$"),
+    NUMBER("^[0-9]+$|^0$");
 
     private final String regex;
 

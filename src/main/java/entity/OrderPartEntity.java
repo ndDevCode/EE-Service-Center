@@ -27,4 +27,5 @@ public class OrderPartEntity {
     private PartEntity part;
 
     private int qtyRequired;
+    private double price;
 }

@@ -79,11 +79,11 @@
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                      <RowConstraints maxHeight="281.0" minHeight="0.0" prefHeight="70.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="520.0" minHeight="0.0" prefHeight="68.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="520.0" minHeight="10.0" prefHeight="109.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="520.0" minHeight="0.0" prefHeight="77.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="410.0" minHeight="2.0" prefHeight="187.0" valignment="CENTER" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="281.0" minHeight="0.0" prefHeight="94.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="520.0" minHeight="0.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="520.0" minHeight="10.0" prefHeight="120.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="520.0" minHeight="0.0" prefHeight="66.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="410.0" minHeight="2.0" prefHeight="264.0" valignment="CENTER" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <Label prefHeight="37.0" prefWidth="262.0" text="Add Parts to Order" GridPane.halignment="LEFT" GridPane.rowIndex="1">
@@ -99,7 +99,7 @@
                               <Insets />
                            </GridPane.margin>
                         </MFXTextField>
-                        <MFXButton fx:id="btnAddPartToOrder" prefHeight="40.0" prefWidth="120.0" text="Add Item" textFill="WHITE" GridPane.rowIndex="4" GridPane.valignment="TOP">
+                        <MFXButton fx:id="btnAddPartToOrder" prefHeight="40.0" prefWidth="120.0" text="Add Item" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="TOP">
                            <stylesheets>
                               <URL value="@css/userPanel.css" />
                               <URL value="@css/adminPanel.css" />
@@ -109,7 +109,7 @@
                               <String fx:value="btn" />
                            </styleClass>
                            <GridPane.margin>
-                              <Insets left="190.0" />
+                              <Insets top="70.0" />
                            </GridPane.margin>
                         </MFXButton>
                         <MFXFilterComboBox fx:id="fcmbxParts" floatingText="Select Part" prefHeight="56.0" prefWidth="260.0" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
@@ -145,7 +145,7 @@
                               <Insets />
                            </GridPane.margin>
                         </MFXTextField>
-                        <MFXButton fx:id="btnAddPart" prefHeight="40.0" text="Add" textFill="WHITE" GridPane.rowIndex="5" GridPane.valignment="TOP">
+                        <MFXButton fx:id="btnAddPart" prefHeight="40.0" prefWidth="79.0" text="Add" textFill="WHITE" GridPane.rowIndex="5" GridPane.valignment="TOP">
                            <stylesheets>
                               <URL value="@css/userPanel.css" />
                               <URL value="@css/adminPanel.css" />
