@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXComboBox?>
+<?import io.github.palexdev.materialfx.controls.MFXTableView?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1330.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ItemInventoryController">
+   <children>
+      <GridPane layoutX="85.0" layoutY="94.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="227.0" minHeight="0.0" prefHeight="79.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="621.0" minHeight="10.0" prefHeight="621.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <GridPane maxHeight="-Infinity" prefHeight="80.0" styleClass="bg-black" stylesheets="@css/adminPanel.css" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label prefHeight="64.0" prefWidth="273.0" text="Item Inventory" textFill="WHITE" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="34.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="50.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="lblStaffId" prefHeight="35.0" prefWidth="95.0" text="ST001" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="50.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label text="Staff ID:" textFill="#f5f2f2" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                     <GridPane.margin>
+                        <Insets right="150.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+            <GridPane style="-fx-background-color: #E6D7D7;" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1200.0" minWidth="10.0" prefWidth="1004.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="659.0" minWidth="10.0" prefWidth="326.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <MFXTableView fx:id="tblItemInventory" prefHeight="532.0" prefWidth="980.0" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.valignment="BOTTOM" GridPane.vgrow="ALWAYS">
+                     <GridPane.margin>
+                        <Insets bottom="15.0" left="15.0" top="15.0" />
+                     </GridPane.margin></MFXTableView>
+                  <GridPane GridPane.columnIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="281.0" minHeight="0.0" prefHeight="70.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="520.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="520.0" minHeight="0.0" prefHeight="68.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="520.0" minHeight="10.0" prefHeight="69.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="520.0" minHeight="0.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="503.0" minHeight="0.0" prefHeight="64.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="410.0" minHeight="0.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="410.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="410.0" minHeight="10.0" prefHeight="66.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="410.0" minHeight="2.0" prefHeight="48.0" valignment="CENTER" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label prefHeight="37.0" prefWidth="262.0" text="Manage Order Items" GridPane.halignment="LEFT">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <MFXTextField fx:id="txtItemName" floatingText="Item Name" prefHeight="56.0" prefWidth="320.0" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </MFXTextField>
+                        <MFXTextField fx:id="txtItemCategory" floatingText="Category" prefWidth="360.0" GridPane.halignment="LEFT" GridPane.rowIndex="5">
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </MFXTextField>
+                        <MFXComboBox fx:id="cmbxStatus" floatingText="Status" prefHeight="53.0" prefWidth="171.0" GridPane.halignment="LEFT" GridPane.rowIndex="6">
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </MFXComboBox>
+                        <MFXButton fx:id="btnDeleteItem" prefHeight="40.0" text="Delete Item" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="9">
+                           <GridPane.margin>
+                              <Insets left="120.0" />
+                           </GridPane.margin>
+                           <stylesheets>
+                              <URL value="@css/userPanel.css" />
+                              <URL value="@css/adminPanel.css" />
+                           </stylesheets>
+                           <styleClass>
+                              <String fx:value="bg-black" />
+                              <String fx:value="btn" />
+                           </styleClass>
+                        </MFXButton>
+                        <MFXButton fx:id="btnUpdateItem" prefHeight="40.0" text="Update Item" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="9">
+                           <GridPane.margin>
+                              <Insets left="5.0" />
+                           </GridPane.margin>
+                           <stylesheets>
+                              <URL value="@css/userPanel.css" />
+                              <URL value="@css/adminPanel.css" />
+                           </stylesheets>
+                           <styleClass>
+                              <String fx:value="bg-black" />
+                              <String fx:value="btn" />
+                           </styleClass>
+                        </MFXButton>
+                        <MFXComboBox fx:id="cmbxZone" floatingText="Zone" prefHeight="53.0" prefWidth="171.0" GridPane.rowIndex="7" />
+                        <MFXTextField fx:id="txtRepairCost" floatingText="Repair Cost" prefHeight="56.0" prefWidth="320.0" GridPane.rowIndex="8" />
+                        <MFXButton fx:id="btnAddItem" prefHeight="40.0" text="Add Item" textFill="WHITE" GridPane.rowIndex="9">
+                           <stylesheets>
+                              <URL value="@css/userPanel.css" />
+                              <URL value="@css/adminPanel.css" />
+                           </stylesheets>
+                           <styleClass>
+                              <String fx:value="bg-black" />
+                              <String fx:value="btn" />
+                           </styleClass>
+                           <GridPane.margin>
+                              <Insets left="230.0" />
+                           </GridPane.margin>
+                        </MFXButton>
+                        <MFXComboBox fx:id="cmbxSelectAction" floatingText="Select Action" prefHeight="53.0" prefWidth="171.0" GridPane.rowIndex="1" />
+                        <MFXTextField fx:id="txtOrderId" allowEdit="false" floatingText="Order ID" prefHeight="56.0" prefWidth="320.0" GridPane.rowIndex="2" />
+                        <MFXTextField fx:id="txtItemId" allowEdit="false" floatingText="Item ID" prefHeight="56.0" prefWidth="320.0" GridPane.rowIndex="3" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets right="10.0" />
+                     </GridPane.margin>
+                  </GridPane>
+                  <MFXComboBox fx:id="cmbxSelectStatus" floatingText="Select Status" prefHeight="56.0" prefWidth="171.0" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+                     <GridPane.margin>
+                        <Insets left="15.0" top="10.0" />
+                     </GridPane.margin>
+                  </MFXComboBox>
+                  <MFXTextField fx:id="txtQtyOfStatus" allowEdit="false" floatingText="Qty" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+                     <GridPane.margin>
+                        <Insets left="200.0" top="10.0" />
+                     </GridPane.margin>
+                  </MFXTextField>
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

@@ -39,7 +39,7 @@ public class OrderEntity {
     @JoinColumn(name = "staff_id")
     private StaffEntity staff;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "order", orphanRemoval = true)
     private List<ItemInventoryEntity> items = new ArrayList<>();
 
     public OrderEntity(String orderId,String description, String orderDate, String status, double totalPrice) {

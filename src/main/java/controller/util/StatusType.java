@@ -4,7 +4,8 @@ public enum StatusType {
     PENDING("Pending"),
     PROCESSING("Processing"),
     COMPLETED("Completed"),
-    CLOSED("Closed");
+    CLOSED("Closed"),
+    CANCELLED("Cancelled");
 
     private final String type;
     StatusType(String type) {

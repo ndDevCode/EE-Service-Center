@@ -4,21 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18bc9f9b-2add-45a0-b78a-29ebc2b4db1f" name="Changes" comment="Completed the Place Order Function along with Customer management">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/tm/OrderTm.java" afterDir="false" />
+    <list default="true" id="18bc9f9b-2add-45a0-b78a-29ebc2b4db1f" name="Changes" comment="Fixed an issue with Place order when saving multiple items with auto id generators&#10; Completed Order Status change function">
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/a/6aa137bc906070754995213a7d2efe6e395e1115" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/a/6aa137bc906070754995213a7d2efe6e395e1115" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/d/ed7cf1d3a0fe35d55dd99bc4007a7ab6f740cdf2" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/d/ed7cf1d3a0fe35d55dd99bc4007a7ab6f740cdf2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bo/custom/OrderBo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bo/custom/OrderBo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bo/custom/impl/OrderBoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bo/custom/impl/OrderBoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/OrderManagementViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/OrderManagementViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/custom/impl/OrderDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/custom/impl/OrderDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dto/OrderDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/OrderDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/CustomerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/CustomerEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/OrderEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/OrderEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/OrderManagementView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/OrderManagementView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +156,7 @@
       <workItem from="1705202041672" duration="19289000" />
       <workItem from="1705287755578" duration="24842000" />
       <workItem from="1705413797169" duration="11289000" />
-      <workItem from="1705462270127" duration="4757000" />
+      <workItem from="1705462270127" duration="5553000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit&#10;Completed Login Interface&#10;Completed Admin Initial Interface&#10;Completed Hibernate ORM&#10;Completed Initial Admin Login to the System&#10;Completed User Authorization with Password Encryption">
       <option name="closed" value="true" />
@@ -217,7 +206,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705419846871</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fixed an issue with Place order when saving multiple items with auto id generators&#10; Completed Order Status change function">
+      <option name="closed" value="true" />
+      <created>1705467350476</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1705467350476</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,6 +226,7 @@
     <MESSAGE value="Completed the HomeView and Catalog Item Management part." />
     <MESSAGE value="Completed the User Profile Update and Password reset&#10;Order Management UI" />
     <MESSAGE value="Completed the Place Order Function along with Customer management" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed the Place Order Function along with Customer management" />
+    <MESSAGE value="Fixed an issue with Place order when saving multiple items with auto id generators&#10; Completed Order Status change function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed an issue with Place order when saving multiple items with auto id generators&#10; Completed Order Status change function" />
   </component>
 </project>

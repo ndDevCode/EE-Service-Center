@@ -42,4 +42,13 @@ public class ItemInventoryEntity {
         this.zone = zone;
         this.repairPrice = repairPrice;
     }
+
+    public ItemInventoryEntity(String itemId, String name, String category, String status, String zone, double repairPrice) {
+        this.itemId = itemId;
+        this.name = name;
+        this.category = category;
+        this.status = status;
+        this.zone = zone;
+        this.repairPrice = repairPrice;
+    }
 }

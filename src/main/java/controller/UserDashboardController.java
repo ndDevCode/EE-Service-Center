@@ -156,6 +156,7 @@ public class UserDashboardController {
 
         btnOrderMgt.setOnAction(actionEvent -> loadOrderManagement(loggedStaff));
 
+        btnItemInventory.setOnAction(actionEvent -> loadItemInventory(loggedStaff));
         //load home page
         loadHomePage();
     }
@@ -217,6 +218,19 @@ public class UserDashboardController {
             Parent root = loader.load();
             OrderManagementViewController orderManagementViewController = loader.getController();
             orderManagementViewController.initLoggedUser(staffDto);
+            paneContent.getChildren().setAll((Node) root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadItemInventory(StaffDto staffDto) {
+        try {
+            FXMLLoader loader = new FXMLLoader(Objects.requireNonNull
+                    (getClass().getResource("/view/ItemInventory.fxml")));
+            Parent root = loader.load();
+            ItemInventoryController itemInventoryController = loader.getController();
+            itemInventoryController.initLoggedUser(staffDto);
             paneContent.getChildren().setAll((Node) root);
         } catch (IOException e) {
             e.printStackTrace();
