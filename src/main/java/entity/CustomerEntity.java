@@ -14,7 +14,6 @@ import java.util.List;
 @NoArgsConstructor
 @Setter
 @Getter
-@ToString
 
 @Entity
 @Table(name = "customer")
@@ -42,5 +41,16 @@ public class CustomerEntity {
         this.lastName = lastName;
         this.email = email;
         this.contactNo = contactNo;
+    }
+
+    @Override
+    public String toString() {
+        return "CustomerEntity{" +
+                "customerId='" + customerId + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", contactNo='" + contactNo + '\'' +
+                '}';
     }
 }

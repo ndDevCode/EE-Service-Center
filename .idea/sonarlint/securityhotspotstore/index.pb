@@ -138,10 +138,6 @@ _
 /src/main/java/dao/custom/impl/OrderDaoImpl.java,2\a\2a0f2887e69155c4ab17b9a6277638f1abc5cc15
 N
 src/main/java/dto/ItemDto.java,3\d\3d0380508e9c218720144ded2d55164c08dc8381
-Y
-)src/main/java/controller/util/Status.java,f\8\f8078b49e6c3202d78d203950061a1a68208585a
-W
-'src/main/java/controller/util/Zone.java,8\b\8bf8014453806ea57feb56e458a1effe68752f8a
 P
  src/main/java/dto/tm/ItemTm.java,9\b\9bcbd3a396619ca96463cd87f096ec09b0b2ae8f
 Y
@@ -162,3 +158,5 @@ $src/main/java/bo/custom/OrderBo.java,f\4\f4324142a116e27db58e2a81f2d0e4b8da1ca
 -src/main/java/controller/util/StatusType.java,0\a\0adbf4f9327b6dae5010b0fff891ecebd62f803a
 [
 +src/main/java/controller/util/ZoneType.java,9\0\90e8da253a65ecb0f4bcdd81f1f6a596bda3d5e8
+Q
+!src/main/java/dto/tm/OrderTm.java,4\2\42a6499ee3db77d80f585b9bd106d7b57745c86a

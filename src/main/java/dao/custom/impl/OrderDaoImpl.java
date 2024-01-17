@@ -10,6 +10,7 @@ import entity.OrderEntity;
 import entity.StaffEntity;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -21,18 +22,21 @@ public class OrderDaoImpl implements OrderDao {
         Session session = HibernateUtil.getSession();
         Transaction transaction = session.beginTransaction();
         OrderEntity order = new OrderEntity(
+                null,
                 dto.getDescription(),
                 dto.getOrderDate(),
                 dto.getStatus(),
                 dto.getTotalPrice()
         );
 
-        order.setStaff(session.find(StaffEntity.class,dto.getStaffId()));
-        order.setCustomer(session.find(CustomerEntity.class,dto.getCustomerId()));
+        order.setStaff(session.find(StaffEntity.class,dto.getStaff()));
+        order.setCustomer(session.find(CustomerEntity.class,dto.getCustomer()));
         session.save(order);
+        transaction.commit();
 
-        List<ItemDto> itemList = dto.getItemList();
+        List<ItemDto> itemList = dto.getItems();
         for(ItemDto item:itemList){
+            transaction.begin();
             ItemInventoryEntity itemEntity = new ItemInventoryEntity(
                     item.getName(),
                     item.getCategory(),
@@ -42,11 +46,9 @@ public class OrderDaoImpl implements OrderDao {
             );
             itemEntity.setOrder(session.find(OrderEntity.class,order.getOrderId()));
             session.save(itemEntity);
+            transaction.commit();
         }
-
-        transaction.commit();
         session.close();
-
         return true;
     }
 
@@ -57,7 +59,15 @@ public class OrderDaoImpl implements OrderDao {
 
     @Override
     public boolean update(Object entity) throws SQLException, ClassNotFoundException {
-        return false;
+        Session session = HibernateUtil.getSession();
+        Transaction transaction = session.beginTransaction();
+        OrderEntity entity1 =(OrderEntity) entity;
+        entity1 = session.find(OrderEntity.class, entity1.getOrderId());
+        entity1.setStatus(((OrderEntity) entity).getStatus());
+        session.update(entity1);
+        transaction.commit();
+        session.close();
+        return true;
     }
 
     @Override
@@ -67,6 +77,8 @@ public class OrderDaoImpl implements OrderDao {
 
     @Override
     public List getAll() throws SQLException, ClassNotFoundException {
-        return null;
+        Session session = HibernateUtil.getSession();
+        Query query = session.createQuery("From OrderEntity");
+        return query.list();
     }
 }

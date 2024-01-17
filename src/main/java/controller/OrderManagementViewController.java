@@ -13,15 +13,18 @@ import dto.ItemDto;
 import dto.OrderDto;
 import dto.StaffDto;
 import dto.tm.ItemTm;
+import dto.tm.OrderTm;
 import io.github.palexdev.materialfx.controls.*;
 import io.github.palexdev.materialfx.controls.cell.MFXTableRowCell;
 import io.github.palexdev.materialfx.filter.StringFilter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.ObservableMap;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -87,17 +90,18 @@ public class OrderManagementViewController {
     @FXML
     private MFXButton btnChangeOrderStatus;
 
+    @FXML
+    private MFXTableView<OrderTm> tblOrders;
+
     private StaffDto loggedStaff;
     private List<ItemDto> itemList = new ArrayList<>();
-
     private final CustomerBo customerBo = BoFactory.getInstance().getBo(BoType.CUSTOMER);
     private final OrderBo orderBo = BoFactory.getInstance().getBo(BoType.ORDER);
-
     private List<CustomerDto> customerList = new ArrayList<>();
-
     Map<String, CustomerDto> customerDtoMap = new HashMap<>();
 
     private CustomerDto selectedCustomer;
+    private OrderTm selectedOrder;
 
     public void initialize() throws SQLException, ClassNotFoundException {
         // Add options to combo boxes
@@ -137,9 +141,114 @@ public class OrderManagementViewController {
             }
         });
         btnRemoveItems.setOnAction(actionEvent -> removeAllItem());
-
+        btnChangeOrderStatus.setOnAction(actionEvent -> {
+            try {
+                updateOrderStatus();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        });
         //initial item table loading
         loadItemTable();
+
+        //initial order table loading
+        loadOrderTable();
+        tblOrders.getSelectionModel().selectionProperty().addListener((observableValue, oldValue, newValue) -> setOrderData(newValue));
+    }
+
+    private void updateOrderStatus() throws SQLException, ClassNotFoundException {
+        if (selectedOrder != null) {
+            OrderDto order = new OrderDto(
+                    selectedOrder.getOrderId(),
+                    selectedOrder.getDescription(),
+                    selectedOrder.getOrderDate(),
+                    cmbxSelectStatus.getSelectedItem(),
+                    selectedOrder.getTotalPrice(),
+                    selectedOrder.getCustomer(),
+                    lblStaffId.getText(),
+                    null
+            );
+
+            if (orderBo.updateOrderStatus(order)) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Update Successfull!").show();
+                clearChangeStatusFields();
+                tblOrders.setItems(getOrders());
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Update Failed").show();
+            }
+        }
+        selectedOrder = null;
+    }
+
+    private void clearChangeStatusFields() {
+        txtOrderId.clear();
+        txtCustomerName.clear();
+        cmbxSelectStatus.clear();
+    }
+
+    private void setOrderData(ObservableMap<Integer, OrderTm> newValue) {
+        Object[] array = newValue.keySet().toArray();
+        if (array.length == 1) {
+            selectedOrder = newValue.get(array[0]);
+            txtOrderId.setText(selectedOrder.getOrderId());
+            txtCustomerName.setText(selectedOrder.getCustomer());
+            cmbxSelectStatus.setText(selectedOrder.getStatus());
+        }
+    }
+
+    private void loadOrderTable() throws SQLException, ClassNotFoundException {
+        MFXTableColumn<OrderTm> orderId =
+                new MFXTableColumn<>("Order ID", false, Comparator.comparing(OrderTm::getOrderId));
+        MFXTableColumn<OrderTm> description =
+                new MFXTableColumn<>("Description", false, Comparator.comparing(OrderTm::getDescription));
+        MFXTableColumn<OrderTm> orderDate =
+                new MFXTableColumn<>("Order Date", false, Comparator.comparing(OrderTm::getOrderDate));
+        MFXTableColumn<OrderTm> status =
+                new MFXTableColumn<>("Status", false, Comparator.comparing(OrderTm::getStatus));
+        MFXTableColumn<OrderTm> customerName =
+                new MFXTableColumn<>("Customer Name", false, Comparator.comparing(OrderTm::getCustomer));
+        MFXTableColumn<OrderTm> totalPrice =
+                new MFXTableColumn<>("Total Price", false, Comparator.comparing(OrderTm::getTotalPrice));
+
+        orderId.setRowCellFactory(item -> new MFXTableRowCell<>(OrderTm::getOrderId));
+        description.setRowCellFactory(item -> new MFXTableRowCell<>(OrderTm::getDescription));
+        orderDate.setRowCellFactory(item -> new MFXTableRowCell<>(OrderTm::getOrderDate));
+        status.setRowCellFactory(item -> new MFXTableRowCell<>(OrderTm::getStatus));
+        customerName.setRowCellFactory(item -> new MFXTableRowCell<>(OrderTm::getCustomer));
+        totalPrice.setRowCellFactory(item -> new MFXTableRowCell<>(OrderTm::getTotalPrice));
+
+        orderId.setPrefWidth(150);
+        description.setPrefWidth(350);
+
+        tblOrders.getTableColumns().addAll(orderId, description, orderDate, status, customerName, totalPrice);
+
+        tblOrders.getFilters().addAll(
+                new StringFilter<>("Order ID", OrderTm::getOrderId),
+                new StringFilter<>("Description", OrderTm::getDescription),
+                new StringFilter<>("Order Date", OrderTm::getOrderDate),
+                new StringFilter<>("Status", OrderTm::getStatus),
+                new StringFilter<>("Customer Name", OrderTm::getCustomer)
+        );
+
+        tblOrders.setItems(getOrders());
+    }
+
+    private ObservableList<OrderTm> getOrders() throws SQLException, ClassNotFoundException {
+        ObservableList<OrderTm> orderList = FXCollections.observableArrayList();
+        List<OrderDto> dtoList = orderBo.getAllOrder();
+        for (OrderDto dto : dtoList) {
+            orderList.add(new OrderTm(
+                    dto.getOrderId(),
+                    dto.getDescription(),
+                    dto.getOrderDate(),
+                    dto.getStatus(),
+                    dto.getCustomer(),
+                    dto.getTotalPrice()
+            ));
+        }
+        return orderList;
     }
 
     private void updateCustomer() throws SQLException, ClassNotFoundException {
@@ -151,7 +260,7 @@ public class OrderManagementViewController {
             customerDto.setContactNo(txtContactNo.getText());
 
             customerBo.updateCustomer(customerDto);
-            new Alert(Alert.AlertType.CONFIRMATION,"Customer Details Updated!").show();
+            new Alert(Alert.AlertType.CONFIRMATION, "Customer Details Updated!").show();
         }
     }
 
@@ -190,7 +299,6 @@ public class OrderManagementViewController {
         }
 
         if (itemList.size() > 0) {
-            System.out.println("inside the method");
             LocalDate today = LocalDate.now();
             double totalPrice = 0;
             for (ItemDto item : itemList) {

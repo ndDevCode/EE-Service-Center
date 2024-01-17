@@ -1,23 +1,17 @@
-package dto;
+package dto.tm;
 
 import lombok.*;
-
-import java.util.List;
-
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
 @ToString
-
-public class OrderDto {
+public class OrderTm {
     private String orderId;
     private String description;
     private String orderDate;
     private String status;
-    private double totalPrice;
     private String customer;
-    private String staff;
-    private List items;
+    private double totalPrice;
 }

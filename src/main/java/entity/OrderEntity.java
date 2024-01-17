@@ -13,7 +13,6 @@ import java.util.List;
 @NoArgsConstructor
 @Setter
 @Getter
-@ToString
 
 @Entity
 @Table(name = "orders")
@@ -40,13 +39,25 @@ public class OrderEntity {
     @JoinColumn(name = "staff_id")
     private StaffEntity staff;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ItemInventoryEntity> items = new ArrayList<>();
 
-    public OrderEntity(String description, String orderDate, String status, double totalPrice) {
+    public OrderEntity(String orderId,String description, String orderDate, String status, double totalPrice) {
+        this.orderId = orderId;
         this.description = description;
         this.orderDate = orderDate;
         this.status = status;
         this.totalPrice = totalPrice;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderEntity{" +
+                "orderId='" + orderId + '\'' +
+                ", description='" + description + '\'' +
+                ", orderDate='" + orderDate + '\'' +
+                ", status='" + status + '\'' +
+                ", totalPrice=" + totalPrice +
+                '}';
     }
 }
