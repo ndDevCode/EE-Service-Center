@@ -29,7 +29,6 @@ public class OrderEntity {
     private String description;
     private String orderDate;
     private String status;
-    private double totalPrice;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
@@ -42,12 +41,11 @@ public class OrderEntity {
     @OneToMany(mappedBy = "order", orphanRemoval = true)
     private List<ItemInventoryEntity> items = new ArrayList<>();
 
-    public OrderEntity(String orderId,String description, String orderDate, String status, double totalPrice) {
+    public OrderEntity(String orderId,String description, String orderDate, String status) {
         this.orderId = orderId;
         this.description = description;
         this.orderDate = orderDate;
         this.status = status;
-        this.totalPrice = totalPrice;
     }
 
     @Override
@@ -57,7 +55,6 @@ public class OrderEntity {
                 ", description='" + description + '\'' +
                 ", orderDate='" + orderDate + '\'' +
                 ", status='" + status + '\'' +
-                ", totalPrice=" + totalPrice +
                 '}';
     }
 }

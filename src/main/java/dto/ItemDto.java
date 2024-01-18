@@ -20,4 +20,11 @@ public class ItemDto{
     private double repairPrice;
     @JsonIgnore
     private String orderId;
+
+    public ItemDto(String itemId, String name, String category, double repairPrice) {
+        this.itemId = itemId;
+        this.name = name;
+        this.category = category;
+        this.repairPrice = repairPrice;
+    }
 }

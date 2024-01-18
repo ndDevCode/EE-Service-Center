@@ -16,7 +16,6 @@ public class OrderDto {
     private String description;
     private String orderDate;
     private String status;
-    private double totalPrice;
     private String customer;
     private String staff;
     private List items;

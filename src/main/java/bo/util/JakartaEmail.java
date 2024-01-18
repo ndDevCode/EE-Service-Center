@@ -1,48 +1,58 @@
 package bo.util;
 
-import java.util.Properties;
-
 import jakarta.mail.*;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 
+import java.util.Properties;
+
 public class JakartaEmail {
+    //provide username
+    private static final String USERNAME = "dassanayakanadeesha@gmail.com";
+    //provide password
+    private static final String PASSWORD = "msfpdsrtxvvlikif";
+    //provide host address
+    private static final String HOST = "smtp.gmail.com";
+    private JakartaEmail() {
+    }
 
-    private JakartaEmail(){}
-
-    public static boolean sendEmail(String subject, String msg, String sendTo) {
-
-        //provide username
-        final String username = "dassanayakanadeesha@gmail.com";
-        //provide password
-        final String password = "msfpdsrtxvvlikif";
-        //provide host address
-        String host = "smtp.gmail.com";
-
-
-        //configure SMTP server details
+    //configure SMTP server details
+    private static Properties getprops() {
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.host", HOST);
         props.put("mail.smtp.port", "587");
 
+        return props;
+    }
 
+
+    public static boolean sendEmail(String subject, String msg, String sendTo, MailType mailType) {
         Authenticator authenticator = new Authenticator() {
+            @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(username, password);
+                return new PasswordAuthentication(USERNAME, PASSWORD);
             }
         };
-        Session session = Session.getInstance(props, authenticator);
+        Session session = Session.getInstance(getprops(), authenticator);
 
         try {
             //create a MimeMessage object
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(username));
-            message.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse(sendTo));
+            message.setFrom(new InternetAddress(USERNAME));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(sendTo));
             message.setSubject(subject);
-            message.setText(msg);
+
+            switch (mailType) {
+                case TEXT_ONLY:
+                    message.setText(msg);
+                    break;
+                case HTML_CONTENT:
+                    message.setContent(msg, "text/html");
+                    break;
+            }
+
             Transport.send(message);
             return true;
         } catch (MessagingException e) {

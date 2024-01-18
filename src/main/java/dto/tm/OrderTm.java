@@ -13,5 +13,4 @@ public class OrderTm {
     private String orderDate;
     private String status;
     private String customer;
-    private double totalPrice;
 }

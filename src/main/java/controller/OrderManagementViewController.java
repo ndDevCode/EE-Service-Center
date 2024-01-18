@@ -4,10 +4,9 @@ import bo.BoFactory;
 import bo.custom.CustomerBo;
 import bo.custom.OrderBo;
 import bo.util.BoType;
-import controller.util.StatusType;
-import controller.util.ValidationType;
-import controller.util.ValidationUtil;
-import controller.util.ZoneType;
+import bo.util.JakartaEmail;
+import bo.util.OrderMail;
+import controller.util.*;
 import dto.CustomerDto;
 import dto.ItemDto;
 import dto.OrderDto;
@@ -113,6 +112,7 @@ public class OrderManagementViewController {
         cmbxSelectStatus.getItems().add("Processing");
         cmbxSelectStatus.getItems().add("Completed");
         cmbxSelectStatus.getItems().add("Closed");
+        cmbxSelectStatus.getItems().add("Cancelled");
 
         loadCustomerFilterList();
         fcmbxSelectCustomer.setOnAction(actionEvent -> setCustomerData(fcmbxSelectCustomer.getSelectedItem()));
@@ -165,7 +165,6 @@ public class OrderManagementViewController {
                     selectedOrder.getDescription(),
                     selectedOrder.getOrderDate(),
                     cmbxSelectStatus.getSelectedItem(),
-                    selectedOrder.getTotalPrice(),
                     selectedOrder.getCustomer(),
                     lblStaffId.getText(),
                     null
@@ -207,22 +206,19 @@ public class OrderManagementViewController {
                 new MFXTableColumn<>("Order Date", false, Comparator.comparing(OrderTm::getOrderDate));
         MFXTableColumn<OrderTm> status =
                 new MFXTableColumn<>("Status", false, Comparator.comparing(OrderTm::getStatus));
-        MFXTableColumn<OrderTm> customerName =
-                new MFXTableColumn<>("Customer Name", false, Comparator.comparing(OrderTm::getCustomer));
-        MFXTableColumn<OrderTm> totalPrice =
-                new MFXTableColumn<>("Total Price", false, Comparator.comparing(OrderTm::getTotalPrice));
+        MFXTableColumn<OrderTm> customerId =
+                new MFXTableColumn<>("Customer ID", false, Comparator.comparing(OrderTm::getCustomer));
 
         orderId.setRowCellFactory(item -> new MFXTableRowCell<>(OrderTm::getOrderId));
         description.setRowCellFactory(item -> new MFXTableRowCell<>(OrderTm::getDescription));
         orderDate.setRowCellFactory(item -> new MFXTableRowCell<>(OrderTm::getOrderDate));
         status.setRowCellFactory(item -> new MFXTableRowCell<>(OrderTm::getStatus));
-        customerName.setRowCellFactory(item -> new MFXTableRowCell<>(OrderTm::getCustomer));
-        totalPrice.setRowCellFactory(item -> new MFXTableRowCell<>(OrderTm::getTotalPrice));
+        customerId.setRowCellFactory(item -> new MFXTableRowCell<>(OrderTm::getCustomer));
 
         orderId.setPrefWidth(150);
         description.setPrefWidth(350);
 
-        tblOrders.getTableColumns().addAll(orderId, description, orderDate, status, customerName, totalPrice);
+        tblOrders.getTableColumns().addAll(orderId, description, orderDate, status, customerId);
 
         tblOrders.getFilters().addAll(
                 new StringFilter<>("Order ID", OrderTm::getOrderId),
@@ -244,8 +240,7 @@ public class OrderManagementViewController {
                     dto.getDescription(),
                     dto.getOrderDate(),
                     dto.getStatus(),
-                    dto.getCustomer(),
-                    dto.getTotalPrice()
+                    dto.getCustomer()
             ));
         }
         return orderList;
@@ -261,6 +256,8 @@ public class OrderManagementViewController {
 
             customerBo.updateCustomer(customerDto);
             new Alert(Alert.AlertType.CONFIRMATION, "Customer Details Updated!").show();
+        }else{
+            new Alert(Alert.AlertType.ERROR, "Please select a customer!").show();
         }
     }
 
@@ -300,10 +297,6 @@ public class OrderManagementViewController {
 
         if (itemList.size() > 0) {
             LocalDate today = LocalDate.now();
-            double totalPrice = 0;
-            for (ItemDto item : itemList) {
-                totalPrice += item.getRepairPrice();
-            }
 
             CustomerDto customer = customerBo.getCustomer(customerDto.getEmail());
 
@@ -312,21 +305,33 @@ public class OrderManagementViewController {
                     txtaDescription.getText(),
                     today.toString(),
                     StatusType.PENDING.toString(),
-                    totalPrice,
                     customer.getCustomerId(),
                     loggedStaff.getStaffId(),
                     itemList
             );
             try {
-                orderBo.saveOrder(orderDto);
-                clearPlaceOrderView();
+                OrderDto order = orderBo.saveOrder(orderDto);
                 selectedCustomer = null;
+                tblOrders.setItems(getOrders());
+                OrderMail.sendPlaceOrderMail(order,txtEmail.getText());
+                clearPlaceOrderView();
                 new Alert(Alert.AlertType.CONFIRMATION, "Order Placed Successfully!").show();
+                loadCustomerFilterList();
+
+                Map<String,Object> orderParams = new HashMap<>();
+                orderParams.put("orderId", order.getOrderId());
+                orderParams.put("customer", order.getCustomer());
+                orderParams.put("description", order.getDescription());
+                orderParams.put("status", order.getStatus());
+                orderParams.put("staff", order.getStaff());
+                orderParams.put("orderDate",order.getOrderDate());
+
+                JasperReportUtil.generatePDFReport(orderParams,"report.pdf");
+
             } catch (Exception e) {
                 new Alert(Alert.AlertType.ERROR, "Something Went Wrong");
                 e.printStackTrace();
             }
-
         } else {
             new Alert(Alert.AlertType.WARNING, "Please Add items to place the order!");
         }

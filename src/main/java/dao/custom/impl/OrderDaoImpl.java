@@ -18,15 +18,14 @@ import java.util.List;
 public class OrderDaoImpl implements OrderDao {
 
     @Override
-    public boolean save(OrderDto dto) throws SQLException, ClassNotFoundException {
+    public OrderEntity save(OrderDto dto) throws SQLException, ClassNotFoundException {
         Session session = HibernateUtil.getSession();
         Transaction transaction = session.beginTransaction();
         OrderEntity order = new OrderEntity(
                 null,
                 dto.getDescription(),
                 dto.getOrderDate(),
-                dto.getStatus(),
-                dto.getTotalPrice()
+                dto.getStatus()
         );
 
         order.setStaff(session.find(StaffEntity.class,dto.getStaff()));
@@ -48,8 +47,13 @@ public class OrderDaoImpl implements OrderDao {
             session.save(itemEntity);
             transaction.commit();
         }
+
+        OrderEntity entity = session.find(OrderEntity.class, order.getOrderId());
+        Query query = session.createQuery("From ItemInventoryEntity i WHERE i.order.id =:orderId");
+        query.setParameter("orderId",entity.getOrderId());
+        entity.setItems(query.list());
         session.close();
-        return true;
+        return entity;
     }
 
     @Override

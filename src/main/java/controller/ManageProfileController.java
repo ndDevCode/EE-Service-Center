@@ -4,6 +4,7 @@ import bo.BoFactory;
 import bo.custom.UserAuthenticationBo;
 import bo.util.BoType;
 import bo.util.JakartaEmail;
+import bo.util.MailType;
 import controller.util.ValidationType;
 import controller.util.ValidationUtil;
 import dto.StaffDto;
@@ -133,7 +134,7 @@ public class ManageProfileController {
                     "E&E Service Center";
 
 
-            JakartaEmail.sendEmail(subject, msgBody, email);
+            JakartaEmail.sendEmail(subject, msgBody, email, MailType.TEXT_ONLY);
             new Alert(Alert.AlertType.INFORMATION,"OTP was sent to your email!").show();
             return;
         }
