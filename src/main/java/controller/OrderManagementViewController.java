@@ -24,6 +24,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
+import org.hibernate.criterion.Order;
 
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -171,9 +172,24 @@ public class OrderManagementViewController {
             );
 
             if (orderBo.updateOrderStatus(order)) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Update Successfull!").show();
+                if(order.getStatus().equalsIgnoreCase(StatusType.COMPLETED.toString())){
+                    OrderMail.sendOrderCompleted(customerBo.getCustomerById(selectedOrder.getCustomer()).getEmail());
+                }else if(order.getStatus().equalsIgnoreCase(StatusType.CLOSED.toString())){
+                    Map<String,Object> orderParams = new HashMap<>();
+                    orderParams.put("orderId", order.getOrderId());
+                    orderParams.put("customer", order.getCustomer());
+                    orderParams.put("description", order.getDescription());
+                    orderParams.put("status", order.getStatus());
+                    orderParams.put("staff", order.getStaff());
+                    orderParams.put("orderDate",order.getOrderDate());
+
+                    JasperReportUtil.generatePDFReport(orderParams,"src/main/resources/reports/report.pdf", StatusType.CLOSED);
+                    OrderMail.sendOrderClosedMail(customerBo.getCustomerById(selectedOrder.getCustomer()).getEmail());
+                }
+
                 clearChangeStatusFields();
                 tblOrders.setItems(getOrders());
+                new Alert(Alert.AlertType.CONFIRMATION, "Update Successfull!").show();
             } else {
                 new Alert(Alert.AlertType.ERROR, "Update Failed").show();
             }
@@ -313,10 +329,6 @@ public class OrderManagementViewController {
                 OrderDto order = orderBo.saveOrder(orderDto);
                 selectedCustomer = null;
                 tblOrders.setItems(getOrders());
-                OrderMail.sendPlaceOrderMail(order,txtEmail.getText());
-                clearPlaceOrderView();
-                new Alert(Alert.AlertType.CONFIRMATION, "Order Placed Successfully!").show();
-                loadCustomerFilterList();
 
                 Map<String,Object> orderParams = new HashMap<>();
                 orderParams.put("orderId", order.getOrderId());
@@ -326,7 +338,12 @@ public class OrderManagementViewController {
                 orderParams.put("staff", order.getStaff());
                 orderParams.put("orderDate",order.getOrderDate());
 
-                JasperReportUtil.generatePDFReport(orderParams,"report.pdf");
+                JasperReportUtil.generatePDFReport(orderParams,"src/main/resources/reports/report.pdf", StatusType.PENDING);
+
+                OrderMail.sendPlaceOrderMail(txtEmail.getText());
+                clearPlaceOrderView();
+                new Alert(Alert.AlertType.CONFIRMATION, "Order Placed Successfully!").show();
+                loadCustomerFilterList();
 
             } catch (Exception e) {
                 new Alert(Alert.AlertType.ERROR, "Something Went Wrong");

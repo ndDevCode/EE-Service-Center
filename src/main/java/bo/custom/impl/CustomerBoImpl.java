@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerBoImpl implements CustomerBo {
-
     private final CustomerDao customerDao = DaoFactory.getInstance().getDao(DaoType.CUSTOMER);
     ObjectMapper mapper = new ObjectMapper();
 
@@ -38,8 +37,8 @@ public class CustomerBoImpl implements CustomerBo {
     }
 
     @Override
-    public CustomerDto getCustomerData(String email) {
-        return null;
+    public CustomerDto getCustomerById(String id) {
+        return mapper.convertValue(customerDao.getCustomerById(id),CustomerDto.class);
     }
 
     @Override

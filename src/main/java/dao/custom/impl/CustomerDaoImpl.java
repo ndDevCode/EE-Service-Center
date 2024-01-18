@@ -77,4 +77,22 @@ public class CustomerDaoImpl implements CustomerDao {
             return null;
         }
     }
+
+    @Override
+    public CustomerEntity getCustomerById(String id) {
+        Session session = HibernateUtil.getSession();
+        Query query = session.createQuery("FROM CustomerEntity c WHERE customerId =:id");
+        query.setParameter("id", id);
+        try {
+            CustomerEntity entity  = (CustomerEntity) query.getSingleResult();
+            session.close();
+            return entity;
+        } catch (NoResultException nre) {
+            session.close();
+            return null;
+        }
+    }
 }
+
+
+
