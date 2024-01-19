@@ -105,7 +105,7 @@ public class LoginFormController {
         stage.close();
 
         // Load Admin Panel FXML
-        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../view/AdminDashboard.fxml")));
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/view/AdminDashboard.fxml")));
         Parent root = loader.load();
 
 
@@ -133,7 +133,7 @@ public class LoginFormController {
         stage.close();
 
         // Load Admin Panel FXML
-        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("../view/UserDashboard.fxml")));
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/view/UserDashboard.fxml")));
         Parent root = loader.load();
 
 
