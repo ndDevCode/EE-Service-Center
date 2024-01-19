@@ -92,6 +92,14 @@ public class CustomerDaoImpl implements CustomerDao {
             return null;
         }
     }
+
+    @Override
+    public CustomerEntity getCustomerByContact(String contact) {
+        Session session = HibernateUtil.getSession();
+        Query query = session.createQuery("FROM CustomerEntity c where contactNo=:contact");
+        query.setParameter("contact",contact);
+        return (CustomerEntity) query.getSingleResult();
+    }
 }
 
 

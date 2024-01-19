@@ -188,3 +188,7 @@ S
 #src/main/java/bo/util/MailType.java,d\4\d453ab0cdbca36d6ac969f7539e14c9b17efdaef
 c
 3src/main/java/controller/util/JasperReportUtil.java,1\7\17fb7b8c8838d8b553ac49dddf842a37fedb9722
+b
+2src/main/java/controller/UserReportController.java,7\6\76f9e7b8c5be04e2f907a1fd05ff3336d797d13d
+c
+3src/main/java/controller/AdminReportController.java,c\c\cc2732772d7d5b70cc01535089bb1ad7e906d485

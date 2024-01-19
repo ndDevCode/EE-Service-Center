@@ -44,6 +44,11 @@ public class OrderBoImpl implements OrderBo {
     }
 
     @Override
+    public OrderDto getOrderByID(String orderId) throws SQLException, ClassNotFoundException {
+        return orderDao.getOrderById(orderId);
+    }
+
+    @Override
     public List<OrderDto> getAllOrder() throws SQLException, ClassNotFoundException {
         List<OrderEntity> entityList = orderDao.getAll();
         List<OrderDto> dtoList = new ArrayList<>();

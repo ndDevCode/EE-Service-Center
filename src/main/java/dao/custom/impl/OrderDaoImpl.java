@@ -57,6 +57,23 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
+    public OrderDto getOrderById(String orderId) {
+        Session session = HibernateUtil.getSession();
+        Query query = session.createQuery("From OrderEntity o where orderId=:orderId");
+        query.setParameter("orderId",orderId);
+        OrderEntity result = (OrderEntity) query.getSingleResult();
+        return new OrderDto(
+                result.getOrderId(),
+                result.getDescription(),
+                result.getOrderDate(),
+                result.getStatus(),
+                result.getCustomer().getCustomerId(),
+                result.getStaff().getStaffId(),
+                result.getItems()
+        );
+    }
+
+    @Override
     public boolean save(Object entity) throws SQLException, ClassNotFoundException {
         return false;
     }

@@ -14,4 +14,5 @@ public interface CustomerBo extends SuperBo {
     boolean updateCustomer(CustomerDto customerDto) throws SQLException, ClassNotFoundException;
     CustomerDto getCustomerById(String id);
     List<CustomerDto> getAllCustomer() throws SQLException, ClassNotFoundException;
+    CustomerDto getCustomerByContact(String contact) throws SQLException,ClassNotFoundException;
 }

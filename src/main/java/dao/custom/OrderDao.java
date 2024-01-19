@@ -8,4 +8,5 @@ import java.sql.SQLException;
 
 public interface OrderDao extends CrudDao {
     OrderEntity save(OrderDto dto) throws SQLException, ClassNotFoundException;
+    OrderDto getOrderById(String orderId);
 }

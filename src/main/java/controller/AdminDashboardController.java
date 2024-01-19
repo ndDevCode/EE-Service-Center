@@ -107,8 +107,23 @@ public class AdminDashboardController {
         // Mapping menu buttons to relevant view
         btnManageUser.setOnAction(actionEvent -> loadUserManageView(loggedStaff));
 
+        btnViewReport.setOnAction(actionEvent -> loadViewReport(loggedStaff));
+
         btnLogOut.setOnAction(actionEvent -> logOut());
 
+    }
+
+    private void loadViewReport(StaffDto staff) {
+        try {
+            FXMLLoader loader = new FXMLLoader(Objects.requireNonNull
+                    (getClass().getResource("/view/AdminReport.fxml")));
+            Parent root = loader.load();
+            AdminReportController adminReportController = loader.getController();
+            adminReportController.initLoggedUser(staff);
+            paneMainContent.getChildren().setAll((Node) root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void logOut() {

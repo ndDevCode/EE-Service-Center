@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1330.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserReportController">
+   <children>
+      <GridPane layoutX="85.0" layoutY="94.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="227.0" minHeight="0.0" prefHeight="79.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="621.0" minHeight="10.0" prefHeight="621.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <GridPane maxHeight="-Infinity" prefHeight="80.0" styleClass="bg-black" stylesheets="@css/adminPanel.css" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label prefHeight="64.0" prefWidth="273.0" text="Report Section" textFill="WHITE" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="34.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="50.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="lblStaffId" prefHeight="35.0" prefWidth="95.0" text="ST001" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="50.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label text="Staff ID:" textFill="#f5f2f2" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                     <GridPane.margin>
+                        <Insets right="150.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+            <GridPane GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="600.0">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                     <children>
+                        <MFXTextField fx:id="txtOrderId" floatingText="Enter Order ID" layoutX="50.0" layoutY="121.0" prefHeight="60.0" prefWidth="250.0" />
+                        <MFXTextField fx:id="txtCustomerContact" floatingText="Enter Customer Contact" layoutX="50.0" layoutY="245.0" prefHeight="60.0" prefWidth="250.0" />
+                        <MFXButton fx:id="btnOrderRpt" layoutX="349.0" layoutY="121.0" prefHeight="60.0" prefWidth="200.0" styleClass="bg-black" stylesheets="@css/adminPanel.css" text="Order Report" textFill="WHITE" />
+                        <MFXButton fx:id="btnOrderByCustomer" layoutX="349.0" layoutY="245.0" prefHeight="60.0" prefWidth="200.0" styleClass="bg-black" stylesheets="@css/adminPanel.css" text="Orders By Customer" textFill="WHITE" />
+                        <MFXButton fx:id="btnAllCustomerRpt" layoutX="200.0" layoutY="399.0" prefHeight="60.0" prefWidth="200.0" styleClass="bg-black" stylesheets="@css/adminPanel.css" text="All Customer Report" textFill="WHITE" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
