@@ -80,12 +80,12 @@
                   </AnchorPane>
                   <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="600.0" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                      <children>
-                        <MFXButton fx:id="btnDaily" layoutX="349.0" layoutY="121.0" prefHeight="60.0" prefWidth="200.0" styleClass="bg-black" stylesheets="@css/adminPanel.css" text="Generate Report" textFill="WHITE" />
-                        <MFXButton fx:id="btnMonthly" layoutX="349.0" layoutY="245.0" prefHeight="60.0" prefWidth="200.0" styleClass="bg-black" stylesheets="@css/adminPanel.css" text="Generate Report" textFill="WHITE" />
-                        <MFXButton fx:id="btnYearly" layoutX="349.0" layoutY="370.0" prefHeight="60.0" prefWidth="200.0" styleClass="bg-black" stylesheets="@css/adminPanel.css" text="Generate Report" textFill="WHITE" />
-                        <MFXComboBox fx:id="cmbxMonth" layoutX="148.0" layoutY="245.0" prefHeight="60.0" prefWidth="174.0" />
-                        <MFXComboBox fx:id="cmbxYear" layoutX="148.0" layoutY="370.0" prefHeight="60.0" prefWidth="174.0" />
+                        <MFXButton fx:id="btnDaily" layoutX="349.0" layoutY="121.0" prefHeight="60.0" prefWidth="200.0" styleClass="bg-black" stylesheets="@css/adminPanel.css" text="Daily Report" textFill="WHITE" />
+                        <MFXButton fx:id="btnMonthly" layoutX="349.0" layoutY="245.0" prefHeight="60.0" prefWidth="200.0" styleClass="bg-black" stylesheets="@css/adminPanel.css" text="Monthly Report" textFill="WHITE" />
+                        <MFXButton fx:id="btnYearly" layoutX="349.0" layoutY="370.0" prefHeight="60.0" prefWidth="200.0" styleClass="bg-black" stylesheets="@css/adminPanel.css" text="Annual Report" textFill="WHITE" />
+                        <MFXComboBox fx:id="cmbxMonth" floatingText="Select Month" layoutX="148.0" layoutY="245.0" prefHeight="60.0" prefWidth="174.0" />
                         <MFXDatePicker fx:id="dateField" layoutX="148.0" layoutY="121.0" prefHeight="60.0" prefWidth="174.0" />
+                        <MFXTextField fx:id="txtYear" floatingText="Enter Order ID" layoutX="148.0" layoutY="377.0" prefHeight="60.0" prefWidth="174.0" />
                      </children>
                   </AnchorPane>
                </children>

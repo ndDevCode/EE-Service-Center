@@ -21,6 +21,8 @@ import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -54,10 +56,10 @@ public class AdminReportController {
     private MFXButton btnYearly;
 
     @FXML
-    private MFXComboBox<?> cmbxMonth;
+    private MFXComboBox<String> cmbxMonth;
 
     @FXML
-    private MFXComboBox<?> cmbxYear;
+    private MFXTextField txtYear;
 
     @FXML
     private MFXDatePicker dateField;
@@ -66,12 +68,13 @@ public class AdminReportController {
     private final CustomerBo customerBo = BoFactory.getInstance().getBo(BoType.CUSTOMER);
 
     public void initialize() {
+        String[] month = {"Jan","Feb","Mar","April","May","June","July","Aug","Sep","Oct","Nov","Dec"};
+        cmbxMonth.getItems().addAll(Arrays.asList(month));
+
         btnOrderRpt.setOnAction(actionEvent -> {
             try {
                 generateOrderReport();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            } catch (ClassNotFoundException e) {
+            } catch (SQLException | ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
         });
@@ -79,14 +82,87 @@ public class AdminReportController {
         btnOrderByCustomer.setOnAction(actionEvent -> {
             try {
                 generateOrderByCustomerReport();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            } catch (ClassNotFoundException e) {
+            } catch (SQLException | ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
         });
 
         btnAllCustomerRpt.setOnAction(actionEvent -> generateAllCustomerReport());
+
+        btnDaily.setOnAction(actionEvent -> generateDailyReport());
+
+        btnMonthly.setOnAction(actionEvent -> generateMonthlyReport());
+
+        btnYearly.setOnAction(actionEvent -> generateYearlyReport());
+    }
+
+    private void generateYearlyReport() {
+        if(!txtYear.getText().isEmpty()){
+            Map<String, Object> parameters = new HashMap<>();
+            parameters.put("logoPath", JasperReportUtil.class.getResourceAsStream("/invoice_logo.png"));
+            parameters.put("date",txtYear.getText()+"%");
+
+            try {
+                JasperDesign design = JRXmlLoader.load("src/main/resources/reports/yearly_report.jrxml");
+                JasperReport jasperReport = JasperCompileManager.compileReport(design);
+                JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, DBConnection.getInstance().getConnection());
+                JasperViewer.viewReport(jasperPrint, false);
+            } catch (JRException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    private void generateMonthlyReport() {
+        if(dateField.getCurrentDate()!=null){
+            Map<String, Object> parameters = new HashMap<>();
+            parameters.put("logoPath", JasperReportUtil.class.getResourceAsStream("/invoice_logo.png"));
+            parameters.put("date", LocalDate.now().getYear()+"-0"+getMonth(cmbxMonth.getText())+"%");
+
+            try {
+                JasperDesign design = JRXmlLoader.load("src/main/resources/reports/monthly_report.jrxml");
+                JasperReport jasperReport = JasperCompileManager.compileReport(design);
+                JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, DBConnection.getInstance().getConnection());
+                JasperViewer.viewReport(jasperPrint, false);
+            } catch (JRException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    private void generateDailyReport() {
+        if(dateField.getCurrentDate()!=null){
+            Map<String, Object> parameters = new HashMap<>();
+            parameters.put("logoPath", JasperReportUtil.class.getResourceAsStream("/invoice_logo.png"));
+            parameters.put("date",dateField.getValue().toString());
+
+            try {
+                JasperDesign design = JRXmlLoader.load("src/main/resources/reports/daily_report.jrxml");
+                JasperReport jasperReport = JasperCompileManager.compileReport(design);
+                JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, DBConnection.getInstance().getConnection());
+                JasperViewer.viewReport(jasperPrint, false);
+            } catch (JRException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    Integer getMonth(String month){
+        switch (month){
+            case "Jan" : return 1;
+            case "Feb" : return 2;
+            case "Mar" : return 3;
+            case "April" : return 4;
+            case "May" : return 5;
+            case "June" : return 6;
+            case "July" : return 7;
+            case "Aug" : return 8;
+            case "Sep" : return 9;
+            case "Oct" : return 10;
+            case "Nov" : return 11;
+            case "Dec" : return 12;
+        }
+        return -1;
     }
 
     private void generateAllCustomerReport() {

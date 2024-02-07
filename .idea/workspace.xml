@@ -4,26 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18bc9f9b-2add-45a0-b78a-29ebc2b4db1f" name="Changes" comment="Updated the mail function to send order place mail, Order Completed mail and order Closed mail with jasper report pdf attachments">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/AdminReportController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/UserReportController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/reports/all_customer.jrxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/reports/customer_orders.jrxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/AdminReport.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/UserReport.fxml" afterDir="false" />
+    <list default="true" id="18bc9f9b-2add-45a0-b78a-29ebc2b4db1f" name="Changes" comment="Fixed some issues in path references that cause errors in .exe">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/reports/daily_report.jrxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/reports/monthly_report.jrxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/reports/yearly_report.jrxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/a/6aa137bc906070754995213a7d2efe6e395e1115" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/a/6aa137bc906070754995213a7d2efe6e395e1115" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bo/custom/CustomerBo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bo/custom/CustomerBo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bo/custom/OrderBo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bo/custom/OrderBo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bo/custom/impl/CustomerBoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bo/custom/impl/CustomerBoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bo/custom/impl/OrderBoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bo/custom/impl/OrderBoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/UserDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/UserDashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/custom/CustomerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/custom/CustomerDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/custom/OrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/custom/OrderDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/custom/impl/CustomerDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/custom/impl/CustomerDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/custom/impl/OrderDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/custom/impl/OrderDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AdminReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AdminReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/reports/customer_orders.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/reports/customer_orders.jrxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/AdminReport.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/AdminReport.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,37 +42,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Maven.ee-service-center [install].executor": "Run",
-    "Maven.ee-service-center [javafx:run].executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "B:/ICET/JavaFX/Final Project/E&E Service Center/ee-service-center/src/main/resources/reports",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.53333336",
-    "settings.editor.selected.configurable": "preferences.customizations",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Maven.ee-service-center [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ee-service-center [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ee-service-center [javafx:run].executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;B:/ICET/JavaFX/Final Project/E&amp;E Service Center/ee-service-center/src/main/resources/reports&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.53333336&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.customizations&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="B:\ICET\JavaFX\Final Project\E&amp;E Service Center\ee-service-center\src\main\resources\reports" />
@@ -100,6 +90,7 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn install" />
+      <command value="mvn clean install" />
     </option>
   </component>
   <component name="RunManager" selected="Maven.ee-service-center [javafx:run]">
@@ -179,7 +170,20 @@
       <workItem from="1705462270127" duration="37986000" />
       <workItem from="1705506614095" duration="6775000" />
       <workItem from="1705547744544" duration="36070000" />
-      <workItem from="1705650317554" duration="6480000" />
+      <workItem from="1705650317554" duration="8384000" />
+      <workItem from="1705687376360" duration="1776000" />
+      <workItem from="1705689406499" duration="59000" />
+      <workItem from="1706101429844" duration="5273000" />
+      <workItem from="1706244369004" duration="1352000" />
+      <workItem from="1706253211493" duration="955000" />
+      <workItem from="1706489163282" duration="2921000" />
+      <workItem from="1706508286497" duration="774000" />
+      <workItem from="1707056301566" duration="2780000" />
+      <workItem from="1707106188059" duration="61000" />
+      <workItem from="1707222349144" duration="2462000" />
+      <workItem from="1707230099674" duration="148000" />
+      <workItem from="1707237611993" duration="2560000" />
+      <workItem from="1707278121190" duration="7854000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit&#10;Completed Login Interface&#10;Completed Admin Initial Interface&#10;Completed Hibernate ORM&#10;Completed Initial Admin Login to the System&#10;Completed User Authorization with Password Encryption">
       <option name="closed" value="true" />
@@ -277,7 +281,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705615244189</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Completed User Report functions">
+      <option name="closed" value="true" />
+      <created>1705659031439</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1705659031439</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Fixed some issues in path references that cause errors in .exe">
+      <option name="closed" value="true" />
+      <created>1705689453117</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1705689453117</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,6 +315,8 @@
     <MESSAGE value="Updated Part Inventory Management function" />
     <MESSAGE value="Integrated Mail function to Order Place Function and Interated Jasper Report feature" />
     <MESSAGE value="Updated the mail function to send order place mail, Order Completed mail and order Closed mail with jasper report pdf attachments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated the mail function to send order place mail, Order Completed mail and order Closed mail with jasper report pdf attachments" />
+    <MESSAGE value="Completed User Report functions" />
+    <MESSAGE value="Fixed some issues in path references that cause errors in .exe" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed some issues in path references that cause errors in .exe" />
   </component>
 </project>

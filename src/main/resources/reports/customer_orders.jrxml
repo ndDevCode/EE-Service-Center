@@ -8,18 +8,18 @@
 	<parameter name="customer_id" class="java.lang.String"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT
-    order_id as orderId,
-    orderDate,
-    status,
-    (
-        SELECT SUM(repairPrice)
-        FROM item_inventory
-        WHERE item_inventory.order_id = orderId
-    ) AS total_item_price
-FROM
-    orders
-WHERE
-    orders.customer_id = $P{customer_id};]]>
+				    order_id as orderId,
+				    orderDate,
+				    status,
+				    (
+				        SELECT SUM(repairPrice)
+				        FROM item_inventory
+				        WHERE item_inventory.order_id = orderId
+				    ) AS total_item_price
+				FROM
+			    	orders
+				WHERE
+			    	orders.customer_id = $P{customer_id};]]>
 	</queryString>
 	<field name="orderId" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="order_id"/>
